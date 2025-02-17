@@ -1,0 +1,10 @@
+package com.example.mypokedex.data.api
+
+import com.example.mypokedex.domain.model.PokemonResponse
+import retrofit2.Response
+import retrofit2.http.GET
+
+interface PokeApi {
+    @GET("pokemon")
+    suspend fun getAllPokemon() : Response<PokemonResponse>
+}
