@@ -1,6 +1,7 @@
 package com.example.mypokedex.ui.composables.navigation
 
 import android.content.SharedPreferences
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -13,7 +14,8 @@ import com.example.mypokedex.utils.Constants
 @Composable
 fun NavigationStack(
     sharedPreferences: SharedPreferences,
-    pokedexViewModel: PokedexViewModel
+    pokedexViewModel: PokedexViewModel,
+    innerPadding : PaddingValues
 ) {
 
     val navController = rememberNavController()

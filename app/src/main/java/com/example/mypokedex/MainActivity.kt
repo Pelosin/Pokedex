@@ -33,7 +33,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyPokedexTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    NavigationStack(sharedPrefs, pokedexViewModel)
+                    NavigationStack(
+                        sharedPrefs,
+                        pokedexViewModel,
+                        innerPadding)
                 }
             }
         }

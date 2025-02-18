@@ -69,5 +69,7 @@ dependencies {
     kapt(libs.hilt.android.compiler)
     implementation (libs.converter.gson)
     implementation (libs.androidx.navigation.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
 
 }

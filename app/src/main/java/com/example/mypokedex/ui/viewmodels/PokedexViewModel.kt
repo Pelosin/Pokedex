@@ -23,7 +23,6 @@ class PokedexViewModel @Inject constructor(
     private val sharedPrefs: SharedPreferences
 ): ViewModel() {
 
-    //private lateinit var sharedPrefs : SharedPreferences
 
     private val _viewState = MutableStateFlow<UiState<List<Pokemon>>>(UiState.Loading)
     val viewState = _viewState.asStateFlow()
@@ -40,7 +39,9 @@ class PokedexViewModel @Inject constructor(
 
                         }
                         is Resource.Error -> {
-                            response.message?.let { Log.e("MyPokemonFailure", it) }
+                            response.message?.let { Log.e("MyPokemonFailure", it)
+                            _viewState.value = UiState.Error("Erro doido")
+                            }
                         }
                     }
                 }

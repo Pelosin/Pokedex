@@ -3,7 +3,6 @@ package com.example.mypokedex.ui.composables.pokedex
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.example.mypokedex.ui.composables.PokemonList
 import com.example.mypokedex.ui.viewmodels.PokedexViewModel
 import com.example.mypokedex.utils.input_events.InputEvents
 import com.example.mypokedex.utils.ui_state.UiState
