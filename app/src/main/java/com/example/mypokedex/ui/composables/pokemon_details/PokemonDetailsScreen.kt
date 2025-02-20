@@ -39,7 +39,9 @@ fun PokemonDetailScreen(
             }
         }
 
-        is UiState.Error -> {}
+        is UiState.Error -> {
+
+        }
         UiState.Loading -> {}
     }
 }

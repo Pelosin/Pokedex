@@ -20,6 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PokedexViewModel @Inject constructor(
     private val pokemonRepository: PokemonRepository,
+    //Remove that to a new Interface
     private val sharedPrefs: SharedPreferences
 ): ViewModel() {
 

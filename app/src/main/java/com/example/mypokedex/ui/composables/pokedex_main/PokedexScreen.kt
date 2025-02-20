@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import com.example.mypokedex.ui.composables.poke_error.PokemonErrorScreen
 import com.example.mypokedex.ui.composables.pokemon_list.PokemonList
 import com.example.mypokedex.ui.composables.pokedex_topbar.PokedexTopbar
 import com.example.mypokedex.ui.viewmodels.PokedexViewModel
@@ -38,7 +39,7 @@ fun PokedexScreen(
             }
 
             is UiState.Error -> {
-                Text("Aconteceu Algum error")
+                PokemonErrorScreen(myAction.message)
             }
 
             UiState.Loading -> {}
