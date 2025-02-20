@@ -11,22 +11,28 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
+import coil3.request.ImageRequest
+import coil3.request.crossfade
 import com.example.mypokedex.R
 import com.example.mypokedex.domain.model.Pokemon
 import com.example.mypokedex.utils.Constants
 
 @Composable
-fun PokemonListItem(pokemon: Pokemon, fakeId: Int) {
+fun PokemonListItem(
+    pokemon: Pokemon,
+    fakeId: Int,
+    onClick : () -> Unit
+) {
     Card(
-        modifier = Modifier.size(75.dp)
+        modifier = Modifier.size(75.dp),
+        onClick = {onClick()}
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
@@ -40,8 +46,11 @@ fun PokemonListItem(pokemon: Pokemon, fakeId: Int) {
             Spacer(Modifier.height(10.dp))
 
             AsyncImage(
-                model = Constants.Network.retrieveImageUrl(fakeId),
-                placeholder = painterResource(R.drawable.gengar),
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(Constants.Network.retrieveImageUrl(fakeId))
+                    .crossfade(true)
+                    .build(),
+                placeholder = painterResource(R.drawable.gengar_opacity),
                 contentDescription = null,
                 error = painterResource(R.drawable.gengar),
                 modifier = Modifier.size(100.dp)
@@ -55,5 +64,5 @@ fun PokemonListItem(pokemon: Pokemon, fakeId: Int) {
 fun PreviewPokemonList() {
     val pokemon = Pokemon("Buba", "lixo")
 
-    PokemonListItem(pokemon, 1)
+    PokemonListItem(pokemon, 1) {}
 }
