@@ -1,4 +1,4 @@
-package com.example.mypokedex.ui.composables.poke_error
+package com.example.mypokedex.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

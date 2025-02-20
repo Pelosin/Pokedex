@@ -1,4 +1,4 @@
-package com.example.mypokedex.ui.composables.on_boarding
+package com.example.mypokedex.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -8,15 +8,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.NavController
-import com.example.mypokedex.ui.viewmodels.PokedexViewModel
-import com.example.mypokedex.utils.input_events.InputEvents
-import com.example.mypokedex.utils.ui_state.UiState
 
 @Composable
 fun FirstTimeScreen(

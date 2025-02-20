@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,7 +18,6 @@ import coil3.compose.SubcomposeAsyncImage
 import coil3.gif.GifDecoder
 import coil3.request.ImageRequest
 import com.example.mypokedex.R
-import com.example.mypokedex.domain.model.PokemonDetails
 
 @Composable
 fun PokemonDetailsImage(

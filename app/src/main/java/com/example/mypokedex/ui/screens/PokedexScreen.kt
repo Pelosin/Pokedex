@@ -1,13 +1,11 @@
-package com.example.mypokedex.ui.composables.pokedex_main
+package com.example.mypokedex.ui.screens
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import com.example.mypokedex.ui.composables.poke_error.PokemonErrorScreen
 import com.example.mypokedex.ui.composables.pokemon_list.PokemonList
 import com.example.mypokedex.ui.composables.pokedex_topbar.PokedexTopbar
 import com.example.mypokedex.ui.viewmodels.PokedexViewModel

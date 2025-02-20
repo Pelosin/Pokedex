@@ -38,7 +38,7 @@ fun PokemonDetails(
             PokemonDetailsTopbar(
                 Modifier,
                 navController,
-                pokemonDetails.name,
+                pokemonDetails.name.replaceFirstChar { it.uppercase() },
                 color
             )
         }
@@ -55,7 +55,8 @@ fun PokemonDetails(
             )
             PokemonDetailSpecs(
                 pokemonDetails.types,
-                pokemonDetails.statsList
+                pokemonDetails.statsList,
+                pokemonDetails.weight
             )
         }
     }

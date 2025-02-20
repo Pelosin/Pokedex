@@ -20,8 +20,6 @@ import javax.inject.Inject
 @HiltViewModel
 class PokedexViewModel @Inject constructor(
     private val pokemonRepository: PokemonRepository,
-    //Remove that to a new Interface
-    private val sharedPrefs: SharedPreferences
 ): ViewModel() {
 
 
@@ -48,7 +46,6 @@ class PokedexViewModel @Inject constructor(
             }
 
             InputEvents.OnFirstTimeFinish -> {
-                sharedPrefs.edit().putBoolean(Constants.SharedKeys.IS_FIRST_OPEN, false).apply()
                 _viewState.value = UiState.Success(null)
             }
             else -> {}

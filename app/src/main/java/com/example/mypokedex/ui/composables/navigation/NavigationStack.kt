@@ -6,9 +6,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.mypokedex.ui.composables.on_boarding.FirstTimeScreen
-import com.example.mypokedex.ui.composables.pokedex_main.PokedexScreen
-import com.example.mypokedex.ui.composables.pokemon_details.PokemonDetailScreen
+import com.example.mypokedex.ui.screens.FirstTimeScreen
+import com.example.mypokedex.ui.screens.PokedexScreen
+import com.example.mypokedex.ui.screens.PokemonDetailScreen
 import com.example.mypokedex.ui.viewmodels.PokedexViewModel
 import com.example.mypokedex.ui.viewmodels.PokemonDetailsViewModel
 import com.example.mypokedex.utils.Constants
@@ -18,18 +18,15 @@ import com.example.mypokedex.utils.Constants
 fun NavigationStack(
     sharedPreferences: SharedPreferences,
     pokedexViewModel: PokedexViewModel,
-    pokemonDetailsViewModel: PokemonDetailsViewModel
+    pokemonDetailsViewModel: PokemonDetailsViewModel,
+    isFirstOpen: Boolean
 ) {
 
     val navController = rememberNavController()
 
-    val firstOpen =
-        sharedPreferences.getBoolean(
-            Constants.SharedKeys.IS_FIRST_OPEN, true
-        )
 
     val startDestination =
-        if (firstOpen) {
+        if (isFirstOpen) {
             Screen.OnBoarding.route
         } else {
             Screen.Main.route

@@ -37,7 +37,7 @@ class PokemonDetailsViewModel @Inject constructor(
                         }
                         is Resource.Error -> {
                             response.message?.let { Log.e("MyPokemonDetailsFailure", it)
-                                _viewState.value = UiState.Error("Erro doido")
+                                _viewState.value = UiState.Error(response.message)
                             }
                         }
                     }
