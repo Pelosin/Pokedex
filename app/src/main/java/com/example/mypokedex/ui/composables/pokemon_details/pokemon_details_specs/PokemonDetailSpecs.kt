@@ -1,9 +1,8 @@
-package com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_text
+package com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -24,18 +23,19 @@ import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.SubcomposeAsyncImage
 import coil3.request.ImageRequest
 import com.example.mypokedex.R
+import com.example.mypokedex.domain.model.Stats
 import com.example.mypokedex.domain.model.Type
 import com.example.mypokedex.utils.Constants
 
 @Composable
-fun PokemonDetailText(
-    types: List<Type>
+fun PokemonDetailSpecs(
+    types: List<Type>,
+    stats: List<Stats>
 ) {
     Column(
         modifier = Modifier
@@ -53,7 +53,7 @@ fun PokemonDetailText(
         ) {
             Text(
                 "Type: ",
-                fontSize = 20.sp,
+                fontSize = 15.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black,
             )
@@ -61,26 +61,21 @@ fun PokemonDetailText(
             LazyRow(
             ) {
                 items(types.size) {
-                    SubcomposeAsyncImage(
-                        model = ImageRequest.Builder(LocalContext.current)
-                            .data(Constants.Network.retrieveTypeImageUrl(types[it].type.url))
-                            .build(),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .size(70.dp),
-                        error = {
-                            if (LocalInspectionMode.current) {
-                                Image(
-                                    painter = painterResource(R.drawable.gengar),
-                                    contentDescription = null,
-                                )
-                            }
-                        }
-                    )
-
-                    Spacer(Modifier.width(10.dp))
+                    PokemonTypeImage(types[it].type)
                 }
             }
+        }
+
+        Text(
+            "Stats: ",
+            fontSize = 15.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.Black,
+            modifier = Modifier.padding(bottom = 5.dp)
+        )
+
+        Row {
+            PokemonStats(stats)
         }
 
     }

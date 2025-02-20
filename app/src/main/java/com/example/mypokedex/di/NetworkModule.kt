@@ -1,7 +1,9 @@
 package com.example.mypokedex.di
 
 import com.example.mypokedex.data.api.PokeApi
+import com.example.mypokedex.data.repository_impl.PokemonDetailsRepoImpl
 import com.example.mypokedex.data.repository_impl.PokemonRepoImpl
+import com.example.mypokedex.domain.repository.PokemonDetailRepository
 import com.example.mypokedex.domain.repository.PokemonRepository
 import com.example.mypokedex.utils.Constants
 import dagger.Module
@@ -18,7 +20,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun providePokeApi() : PokeApi = Retrofit.Builder()
+    fun providePokeApi(): PokeApi = Retrofit.Builder()
         .baseUrl(Constants.Network.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
@@ -26,5 +28,11 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun providesPokemonRepo(pokeApi: PokeApi) : PokemonRepository = PokemonRepoImpl(pokeApi)
+    fun providesPokemonRepo(pokeApi: PokeApi): PokemonRepository =
+        PokemonRepoImpl(pokeApi)
+
+    @Singleton
+    @Provides
+    fun providesPokemonDetailsRepo(pokeApi: PokeApi): PokemonDetailRepository =
+        PokemonDetailsRepoImpl(pokeApi)
 }

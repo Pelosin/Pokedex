@@ -36,11 +36,10 @@ class PokedexViewModel @Inject constructor(
                             response.data?.results?.let {
                                 _viewState.value = UiState.Success(response.data.results)
                             }
-
                         }
                         is Resource.Error -> {
                             response.message?.let { Log.e("MyPokemonFailure", it)
-                            _viewState.value = UiState.Error("Erro doido")
+                                _viewState.value = UiState.Error("Erro doido")
                             }
                         }
                     }
@@ -51,6 +50,7 @@ class PokedexViewModel @Inject constructor(
                 sharedPrefs.edit().putBoolean(Constants.SharedKeys.IS_FIRST_OPEN, false).apply()
                 _viewState.value = UiState.Success(null)
             }
+            else -> {}
         }
     }
 }
