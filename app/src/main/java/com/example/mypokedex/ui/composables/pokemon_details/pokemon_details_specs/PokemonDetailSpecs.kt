@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,14 +31,15 @@ import com.example.mypokedex.domain.model.TypeDetail
 fun PokemonDetailSpecs(
     types: List<Type>,
     stats: List<Stats>,
-    weight: Int
+    weight: Int,
+    height : Int
 ) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
             .background(
-                colorResource(R.color.off_white),
+                colorResource(R.color.white),
                 shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)
             )
             .padding(top = 60.dp, start = 40.dp),
@@ -80,7 +83,27 @@ fun PokemonDetailSpecs(
             modifier = Modifier.padding(bottom = 5.dp, top = 15.dp)
         )
 
-        Text("$weight g", fontSize = 14.sp)
+        Text(
+            "${weight / 10} kg",
+            fontSize = 14.sp,
+            modifier = Modifier
+                .padding(start = 10.dp)
+        )
+
+        Text(
+            "Height: ",
+            fontSize = 15.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.Black,
+            modifier = Modifier.padding(bottom = 5.dp, top = 15.dp)
+        )
+
+        Text(
+            "${(height.toDouble() * 10)} cm",
+            fontSize = 14.sp,
+            modifier = Modifier
+                .padding(start = 10.dp)
+        )
     }
 }
 
@@ -90,7 +113,8 @@ fun PokemonDetailsSpecPreview() {
     PokemonDetailSpecs(
         listOf(Type(1, TypeDetail("Grass", "a"))),
         listOf(Stats(65, StatType("Hp"))),
-        104
+        104,
+        2
     )
 }
 

@@ -8,13 +8,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mypokedex.R
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 
 @Composable
 fun LoadingImage(
-    painter : Painter
+    painter: Painter
 ) {
     Image(
         modifier = Modifier
@@ -22,5 +23,18 @@ fun LoadingImage(
             .size(50.dp),
         painter = painter,
         contentDescription = null
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LoadingImagePreview() {
+    LoadingImage(
+        rememberDrawablePainter(
+            drawable = getDrawable(
+                LocalContext.current,
+                R.drawable.pokeball_gif
+            )
+        )
     )
 }

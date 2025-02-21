@@ -1,5 +1,5 @@
 package com.example.mypokedex.domain.repository
 
-interface IsFirstOpenRepository {
+interface IIsFirstOpenRepository {
     suspend fun getIsFirstOpen() : Boolean
 }

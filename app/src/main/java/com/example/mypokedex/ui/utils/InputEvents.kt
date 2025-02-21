@@ -1,4 +1,4 @@
-package com.example.mypokedex.utils
+package com.example.mypokedex.ui.utils
 
 sealed class InputEvents {
     data object OnFirstTimeFinish: InputEvents()

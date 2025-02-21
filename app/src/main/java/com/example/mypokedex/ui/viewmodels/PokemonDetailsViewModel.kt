@@ -4,12 +4,11 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mypokedex.domain.model.PokemonDetails
-import com.example.mypokedex.domain.repository.PokemonDetailRepository
-import com.example.mypokedex.utils.Resource
-import com.example.mypokedex.utils.input_events.InputEvents
-import com.example.mypokedex.utils.ui_state.UiState
+import com.example.mypokedex.data.utils.FunctionResponse
+import com.example.mypokedex.domain.repository.IPokemonDetailRepository
+import com.example.mypokedex.ui.utils.InputEvents
+import com.example.mypokedex.ui.utils.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -17,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PokemonDetailsViewModel @Inject constructor(
-    private val pokemonDetailRepository: PokemonDetailRepository
+    private val pokemonDetailRepository: IPokemonDetailRepository
 ) : ViewModel() {
 
 
@@ -30,12 +29,12 @@ class PokemonDetailsViewModel @Inject constructor(
                 viewModelScope.launch {
                     when(val response =
                         pokemonDetailRepository.getPokemonByName(inputEvents.name)) {
-                        is Resource.Success -> {
+                        is FunctionResponse.Success -> {
                             response.data?.let {
                                 _viewState.value = UiState.Success(it)
                             }
                         }
-                        is Resource.Error -> {
+                        is FunctionResponse.Error -> {
                             response.message?.let { Log.e("MyPokemonDetailsFailure", it)
                                 _viewState.value = UiState.Error(response.message)
                             }

@@ -1,11 +1,13 @@
 package com.example.mypokedex.di
 
-import com.example.mypokedex.data.api.PokeApi
-import com.example.mypokedex.data.repository_impl.PokemonDetailsRepoImpl
-import com.example.mypokedex.data.repository_impl.PokemonRepoImpl
-import com.example.mypokedex.domain.repository.PokemonDetailRepository
-import com.example.mypokedex.domain.repository.PokemonRepository
-import com.example.mypokedex.utils.Constants
+import com.example.mypokedex.data.remote.api.PokeApi
+import com.example.mypokedex.data.remote.datasource.IPokemonDataSource
+import com.example.mypokedex.data.remote.datasource.PokemonDataSource
+import com.example.mypokedex.data.remote.repository.PokemonDetailsRepoImpl
+import com.example.mypokedex.data.remote.repository.PokemonRepoImpl
+import com.example.mypokedex.data.utils.Constants
+import com.example.mypokedex.domain.repository.IPokemonDetailRepository
+import com.example.mypokedex.domain.repository.IPokemonRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,19 +22,17 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun providePokeApi(): PokeApi = Retrofit.Builder()
-        .baseUrl(Constants.Network.BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-        .create(PokeApi::class.java)
+    fun providePokemonDataSource(): IPokemonDataSource {
+        return PokemonDataSource(Constants.Network.BASE_URL)
+    }
 
     @Singleton
     @Provides
-    fun providesPokemonRepo(pokeApi: PokeApi): PokemonRepository =
-        PokemonRepoImpl(pokeApi)
+    fun providesPokemonRepo(pokemonDataSource : IPokemonDataSource): IPokemonRepository =
+        PokemonRepoImpl(pokemonDataSource)
 
     @Singleton
     @Provides
-    fun providesPokemonDetailsRepo(pokeApi: PokeApi): PokemonDetailRepository =
-        PokemonDetailsRepoImpl(pokeApi)
+    fun providesPokemonDetailsRepo(pokemonDataSource : IPokemonDataSource): IPokemonDetailRepository =
+        PokemonDetailsRepoImpl(pokemonDataSource)
 }

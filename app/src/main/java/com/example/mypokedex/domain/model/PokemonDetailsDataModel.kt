@@ -7,6 +7,7 @@ data class PokemonDetails(
     val order: Int,
     val types: List<Type>,
     val weight: Int,
+    val height : Int,
     val sprites: Sprites,
     @SerializedName("stats")
     val statsList : List<Stats>

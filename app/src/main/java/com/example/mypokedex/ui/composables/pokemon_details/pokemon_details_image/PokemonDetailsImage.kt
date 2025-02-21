@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.SubcomposeAsyncImage
 import coil3.gif.GifDecoder
@@ -50,4 +51,10 @@ fun PokemonDetailsImage(
             }
         )
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PokemonDetailsImagePreview() {
+    PokemonDetailsImage("", Color(0xFF78C850))
 }

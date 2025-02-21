@@ -7,7 +7,6 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -18,7 +17,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
@@ -29,11 +27,11 @@ import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import com.example.mypokedex.R
 import com.example.mypokedex.ui.composables.loading_image.LoadingImage
-import com.example.mypokedex.utils.Constants
+import com.example.mypokedex.data.utils.Constants
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 
 @Composable
-fun PokedexCardList(fakeId : Int) {
+fun PokedexCardList(fakeId: Int) {
 
     val infiniteTransition = rememberInfiniteTransition()
     val scale by infiniteTransition.animateFloat(
@@ -72,17 +70,20 @@ fun PokedexCardList(fakeId : Int) {
             onSuccess = { imageState.value = false },
             contentDescription = null,
             error = painterResource(R.drawable.gengar),
-            modifier = Modifier.size(75.dp)
+            modifier = Modifier
+                .size(75.dp)
                 .graphicsLayer(scaleX = scale, scaleY = scale),
         )
 
         if (imageState.value) {
-            LoadingImage(rememberDrawablePainter(
-                drawable = getDrawable(
-                    LocalContext.current,
-                    R.drawable.pokeball_gif
+            LoadingImage(
+                rememberDrawablePainter(
+                    drawable = getDrawable(
+                        LocalContext.current,
+                        R.drawable.pokeball_gif
+                    )
                 )
-            ))
+            )
 
         }
     }

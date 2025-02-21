@@ -1,4 +1,4 @@
-package com.example.mypokedex.utils
+package com.example.mypokedex.data.utils
 
 object Constants {
     object SharedKeys {

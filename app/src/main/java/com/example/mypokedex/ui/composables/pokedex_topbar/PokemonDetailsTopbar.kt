@@ -1,8 +1,11 @@
 package com.example.mypokedex.ui.composables.pokedex_topbar
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.sharp.ArrowBack
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material.icons.twotone.Star
@@ -17,10 +20,16 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.mypokedex.R
 
 @ExperimentalMaterial3Api
@@ -42,15 +51,16 @@ fun PokemonDetailsTopbar(
         title = {
             Text(
                 title,
+                modifier = Modifier.padding(bottom = 4.dp),
                 fontFamily = FontFamily(Font(R.font.pokefont)),
                 color = Color.White,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
             )
 
         },
         actions = {
             IconButton(onClick = { isFav.value = !isFav.value }) {
-                if(isFav.value) {
+                if (isFav.value) {
                     Icon(
                         imageVector = Icons.Filled.Star,
                         contentDescription = null,
@@ -58,9 +68,11 @@ fun PokemonDetailsTopbar(
                     )
                 } else {
                     Icon(
-                        imageVector = Icons.TwoTone.Star,
+                        imageVector = ImageVector.vectorResource(R.drawable.baseline_star_outline_24),
                         contentDescription = null,
                         tint = Color.Yellow,
+                        modifier = Modifier.size(27.dp)
+                            .padding()
                     )
                 }
             }
@@ -72,11 +84,18 @@ fun PokemonDetailsTopbar(
                 }
             ) {
                 Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    imageVector = Icons.AutoMirrored.Sharp.ArrowBack,
                     tint = Color.White,
                     contentDescription = null
                 )
             }
         }
     )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Preview(showBackground = true)
+@Composable
+fun DetailsTopbarPreview() {
+    PokemonDetailsTopbar(Modifier, rememberNavController(), "Bulbasaur", Color(0xFF78C850))
 }

@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt)
     alias(libs.plugins.org.jetbrains.kotlin.kapt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -73,5 +74,9 @@ dependencies {
     implementation(libs.coil.network.okhttp)
     implementation(libs.coil3.coil.gif)
     implementation(libs.accompanist.drawablepainter)
-
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation (libs.androidx.hilt.navigation.fragment)
+    implementation (libs.androidx.hilt.navigation.compose)
+    implementation (libs.androidx.lifecycle.viewmodel.compose)
 }

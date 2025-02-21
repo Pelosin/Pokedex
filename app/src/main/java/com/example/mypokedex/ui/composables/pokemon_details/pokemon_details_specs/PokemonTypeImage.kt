@@ -9,13 +9,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.SubcomposeAsyncImage
 import coil3.request.ImageRequest
 import com.example.mypokedex.R
-import com.example.mypokedex.domain.model.Type
 import com.example.mypokedex.domain.model.TypeDetail
-import com.example.mypokedex.utils.Constants
+import com.example.mypokedex.data.utils.Constants
 
 @Composable
 fun PokemonTypeImage(
@@ -39,4 +39,10 @@ fun PokemonTypeImage(
     )
 
     Spacer(Modifier.width(10.dp))
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PokemonTypeImagePreview() {
+    PokemonTypeImage(TypeDetail("Grass", "a"))
 }

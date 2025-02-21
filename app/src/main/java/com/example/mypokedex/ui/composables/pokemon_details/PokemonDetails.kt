@@ -19,7 +19,7 @@ import com.example.mypokedex.domain.model.Sprites
 import com.example.mypokedex.ui.composables.pokedex_topbar.PokemonDetailsTopbar
 import com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_image.PokemonDetailsImage
 import com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonDetailSpecs
-import com.example.mypokedex.utils.PokemonColor.getPokemonTypeColor
+import com.example.mypokedex.ui.utils.PokemonColor.getPokemonTypeColor
 
 @ExperimentalMaterial3Api
 @Composable
@@ -56,7 +56,8 @@ fun PokemonDetails(
             PokemonDetailSpecs(
                 pokemonDetails.types,
                 pokemonDetails.statsList,
-                pokemonDetails.weight
+                pokemonDetails.weight,
+                pokemonDetails.height
             )
         }
     }
@@ -74,6 +75,7 @@ fun PokeDetailsPreview() {
             1,
             emptyList(),
             1,
+            2,
             Sprites(OtherSprites(ShowdownSprites("a"))),
             emptyList()
         ),

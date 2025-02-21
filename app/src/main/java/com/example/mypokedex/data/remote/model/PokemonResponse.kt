@@ -1,4 +1,6 @@
-package com.example.mypokedex.domain.model
+package com.example.mypokedex.data.remote.model
+
+import com.example.mypokedex.domain.model.Pokemon
 
 data class PokemonResponse(
     val count: Int,

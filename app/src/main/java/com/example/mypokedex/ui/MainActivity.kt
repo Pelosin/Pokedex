@@ -1,4 +1,4 @@
-package com.example.mypokedex
+package com.example.mypokedex.ui
 
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -12,7 +12,7 @@ import com.example.mypokedex.ui.composables.navigation.NavigationStack
 import com.example.mypokedex.ui.theme.MyPokedexTheme
 import com.example.mypokedex.ui.viewmodels.PokedexViewModel
 import com.example.mypokedex.ui.viewmodels.PokemonDetailsViewModel
-import com.example.mypokedex.utils.Constants
+import com.example.mypokedex.data.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -21,32 +21,14 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    @Inject
-    lateinit var sharedPrefs: SharedPreferences
-
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
 
-        val pokedexViewModel: PokedexViewModel by viewModels()
-
-        val pokemonDetailsViewModel : PokemonDetailsViewModel by viewModels()
-
-        val isFirstOpen = sharedPrefs.getBoolean(Constants.SharedKeys.IS_FIRST_OPEN, true)
-
-        if(isFirstOpen) {
-            sharedPrefs.edit().putBoolean(Constants.SharedKeys.IS_FIRST_OPEN, false).apply()
-        }
-
         enableEdgeToEdge()
         setContent {
             MyPokedexTheme {
-                NavigationStack(
-                    sharedPrefs,
-                    pokedexViewModel,
-                    pokemonDetailsViewModel,
-                    isFirstOpen
-                )
+                NavigationStack()
             }
         }
     }

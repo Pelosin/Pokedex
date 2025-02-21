@@ -1,15 +1,13 @@
 package com.example.mypokedex.ui.viewmodels
 
-import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mypokedex.domain.model.Pokemon
-import com.example.mypokedex.domain.repository.PokemonRepository
-import com.example.mypokedex.utils.input_events.InputEvents
-import com.example.mypokedex.utils.ui_state.UiState
-import com.example.mypokedex.utils.Constants
-import com.example.mypokedex.utils.Resource
+import com.example.mypokedex.ui.utils.InputEvents
+import com.example.mypokedex.ui.utils.UiState
+import com.example.mypokedex.data.utils.FunctionResponse
+import com.example.mypokedex.domain.repository.IPokemonRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PokedexViewModel @Inject constructor(
-    private val pokemonRepository: PokemonRepository,
+    private val pokemonRepository: IPokemonRepository,
 ): ViewModel() {
 
 
@@ -31,12 +29,12 @@ class PokedexViewModel @Inject constructor(
             InputEvents.OnCallApi -> {
                 viewModelScope.launch(Dispatchers.IO) {
                     when(val response = pokemonRepository.getAllPokemon()) {
-                        is Resource.Success -> {
-                            response.data?.results?.let {
-                                _viewState.value = UiState.Success(response.data.results)
+                        is FunctionResponse.Success -> {
+                            response.data?.let {
+                                _viewState.value = UiState.Success(response.data)
                             }
                         }
-                        is Resource.Error -> {
+                        is FunctionResponse.Error -> {
                             response.message?.let { Log.e("MyPokemonFailure", it)
                                 _viewState.value = UiState.Error("Erro doido")
                             }

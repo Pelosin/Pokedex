@@ -1,4 +1,4 @@
-package com.example.mypokedex.utils
+package com.example.mypokedex.data.utils
 
 sealed class FunctionResponse<T>(val data: T?, val message: String?) {
     class Success<T>(data: T?) : FunctionResponse<T>(data, null)

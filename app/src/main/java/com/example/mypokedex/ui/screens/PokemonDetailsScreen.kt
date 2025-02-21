@@ -2,20 +2,23 @@ package com.example.mypokedex.ui.screens
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.mypokedex.ui.composables.pokemon_details.PokemonDetails
 import com.example.mypokedex.ui.viewmodels.PokemonDetailsViewModel
-import com.example.mypokedex.utils.input_events.InputEvents
-import com.example.mypokedex.utils.ui_state.UiState
+import com.example.mypokedex.ui.utils.InputEvents
+import com.example.mypokedex.ui.utils.UiState
 
 @ExperimentalMaterial3Api
 @Composable
 fun PokemonDetailScreen(
     name: String,
-    pokemonDetailsViewModel: PokemonDetailsViewModel,
     navController: NavController
 ) {
+    val pokemonDetailsViewModel : PokemonDetailsViewModel = hiltViewModel()
+
     pokemonDetailsViewModel.onInputEvent(InputEvents.OnDetailsApiCall(name))
 
     when (val myState = pokemonDetailsViewModel.viewState.collectAsStateWithLifecycle().value) {
