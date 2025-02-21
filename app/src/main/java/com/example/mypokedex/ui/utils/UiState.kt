@@ -1,4 +1,4 @@
-package com.example.mypokedex.utils.ui_state
+package com.example.mypokedex.utils
 
 sealed class UiState<out T : Any> {
     data object Loading : UiState<Nothing>()
