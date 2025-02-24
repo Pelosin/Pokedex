@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -22,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mypokedex.R
+import com.example.mypokedex.domain.model.PokemonDetails
 import com.example.mypokedex.domain.model.StatType
 import com.example.mypokedex.domain.model.Stats
 import com.example.mypokedex.domain.model.Type
@@ -29,92 +32,38 @@ import com.example.mypokedex.domain.model.TypeDetail
 
 @Composable
 fun PokemonDetailSpecs(
-    types: List<Type>,
-    stats: List<Stats>,
-    weight: Int,
-    height : Int
+    pokemonDetails: PokemonDetails
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight()
-            .background(
-                colorResource(R.color.white),
-                shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)
-            )
-            .padding(top = 60.dp, start = 40.dp),
-    ) {
-        Row(
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                "Type: ",
-                fontSize = 15.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.Black,
-            )
 
-            LazyRow(
-            ) {
-                items(types.size) {
-                    PokemonTypeImage(types[it].type)
-                }
+    val pagerState = rememberPagerState(pageCount = {
+        10
+    })
+    HorizontalPager(
+        state = pagerState
+    ) {
+        when(it) {
+            0 -> {
+                PokemonAttributes(pokemonDetails)
+            }
+
+            1 -> {
+                PokemonEvolutions(pokemonDetails)
             }
         }
 
-        Text(
-            "Stats: ",
-            fontSize = 15.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.Black,
-            modifier = Modifier.padding(bottom = 5.dp, top = 5.dp)
-        )
-
-        Row {
-            PokemonStats(stats)
-        }
-
-        Text(
-            "Weight: ",
-            fontSize = 15.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.Black,
-            modifier = Modifier.padding(bottom = 5.dp, top = 15.dp)
-        )
-
-        Text(
-            "${weight / 10} kg",
-            fontSize = 14.sp,
-            modifier = Modifier
-                .padding(start = 10.dp)
-        )
-
-        Text(
-            "Height: ",
-            fontSize = 15.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.Black,
-            modifier = Modifier.padding(bottom = 5.dp, top = 15.dp)
-        )
-
-        Text(
-            "${(height.toDouble() * 10)} cm",
-            fontSize = 14.sp,
-            modifier = Modifier
-                .padding(start = 10.dp)
-        )
     }
+
+
 }
 
 @Preview(showBackground = true)
 @Composable
 fun PokemonDetailsSpecPreview() {
-    PokemonDetailSpecs(
-        listOf(Type(1, TypeDetail("Grass", "a"))),
-        listOf(Stats(65, StatType("Hp"))),
-        104,
-        2
-    )
+   //PokemonDetailSpecs(
+   //    listOf(Type(1, TypeDetail("Grass", "a"))),
+   //    listOf(Stats(65, StatType("Hp"))),
+   //    104,
+   //    2
+   //)
 }
 

@@ -1,7 +1,10 @@
 package com.example.mypokedex.data.remote.api
 
+import EvolutionResponse
+import PokemonSpecies
 import com.example.mypokedex.domain.model.PokemonDetails
 import com.example.mypokedex.data.remote.model.PokemonResponse
+import com.example.mypokedex.data.remote.model.SpeciesResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -14,4 +17,15 @@ interface PokeApi {
     suspend fun getPokemonByName(
         @Path("name") name : String
     ) : Response<PokemonDetails>
+
+    @GET("evolution-chain/{id}")
+    suspend fun getEvolutionChain(
+        @Path("id") id : String
+    ) : Response<EvolutionResponse>
+
+    @GET("pokemon-species/{name}")
+    suspend fun getSpecies(
+        @Path("name") name : String
+    ) : Response<SpeciesResponse>
+
 }

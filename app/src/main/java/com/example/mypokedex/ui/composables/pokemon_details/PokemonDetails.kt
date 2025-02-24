@@ -54,10 +54,7 @@ fun PokemonDetails(
                 color
             )
             PokemonDetailSpecs(
-                pokemonDetails.types,
-                pokemonDetails.statsList,
-                pokemonDetails.weight,
-                pokemonDetails.height
+                pokemonDetails
             )
         }
     }

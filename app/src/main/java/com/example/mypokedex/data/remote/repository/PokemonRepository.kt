@@ -1,14 +1,12 @@
 package com.example.mypokedex.data.remote.repository
 
-import com.example.mypokedex.data.remote.api.PokeApi
 import com.example.mypokedex.data.remote.datasource.IPokemonDataSource
-import com.example.mypokedex.data.remote.model.PokemonResponse
 import com.example.mypokedex.data.utils.FunctionResponse
 import com.example.mypokedex.domain.model.Pokemon
 import com.example.mypokedex.domain.repository.IPokemonRepository
 import javax.inject.Inject
 
-class PokemonRepoImpl @Inject constructor(
+class PokemonRepository @Inject constructor(
     private val pokemonDataSource: IPokemonDataSource
 
 ) : IPokemonRepository{

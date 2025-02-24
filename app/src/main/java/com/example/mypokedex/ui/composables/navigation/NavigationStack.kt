@@ -3,9 +3,9 @@ package com.example.mypokedex.ui.composables.navigation
 import android.util.Log
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -22,12 +22,13 @@ fun NavigationStack(
 
     val navigationViewModel : NavigationViewModel = hiltViewModel()
 
-    navigationViewModel.checkForRoute()
-
     val startDestination =
         navigationViewModel.navigationState.collectAsStateWithLifecycle().value
 
-    Log.d("MyStartRoute", startDestination)
+    LaunchedEffect(navController) {
+        navigationViewModel.checkForRoute()
+        Log.d("MyStartRoute", startDestination)
+    }
 
     NavHost(navController, startDestination) {
         composable(route = Screen.Main.route) {
