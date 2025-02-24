@@ -14,8 +14,8 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.SubcomposeAsyncImage
 import coil3.request.ImageRequest
 import com.example.mypokedex.R
-import com.example.mypokedex.domain.model.TypeDetail
 import com.example.mypokedex.data.utils.Constants
+import com.example.mypokedex.domain.model.TypeDetail
 
 @Composable
 fun PokemonTypeImage(

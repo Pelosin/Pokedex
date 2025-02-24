@@ -20,8 +20,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mypokedex.R
 import com.example.mypokedex.domain.model.PokemonDetails
-import com.example.mypokedex.domain.model.Stats
-import com.example.mypokedex.domain.model.Type
 
 @Composable
 fun PokemonAttributes(

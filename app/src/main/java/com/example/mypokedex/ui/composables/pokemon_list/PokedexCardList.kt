@@ -26,8 +26,8 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import com.example.mypokedex.R
-import com.example.mypokedex.ui.composables.loading_image.LoadingImage
 import com.example.mypokedex.data.utils.Constants
+import com.example.mypokedex.ui.composables.loading_image.LoadingImage
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 
 @Composable

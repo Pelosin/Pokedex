@@ -2,7 +2,6 @@ package com.example.mypokedex.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.NavController
 import com.example.mypokedex.domain.repository.IIsFirstOpenRepository
 import com.example.mypokedex.ui.composables.navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel

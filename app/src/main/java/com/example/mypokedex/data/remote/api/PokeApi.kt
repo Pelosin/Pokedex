@@ -1,10 +1,9 @@
 package com.example.mypokedex.data.remote.api
 
 import EvolutionResponse
-import PokemonSpecies
-import com.example.mypokedex.domain.model.PokemonDetails
 import com.example.mypokedex.data.remote.model.PokemonResponse
 import com.example.mypokedex.data.remote.model.SpeciesResponse
+import com.example.mypokedex.domain.model.PokemonDetails
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

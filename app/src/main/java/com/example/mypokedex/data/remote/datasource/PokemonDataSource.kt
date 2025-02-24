@@ -7,23 +7,17 @@ import com.example.mypokedex.data.utils.FunctionResponse
 import com.example.mypokedex.domain.model.Pokemon
 import com.example.mypokedex.domain.model.PokemonDetails
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
-class PokemonDataSource (
-    url : String
+class PokemonDataSource @Inject constructor(
+    private val pokeApi: PokeApi
 ) : IPokemonDataSource {
 
-    private val pokeApi : PokeApi = Retrofit.Builder()
-    .baseUrl(url)
-    .addConverterFactory(GsonConverterFactory.create())
-    .build()
-    .create(PokeApi::class.java)
 
     override suspend fun getAllPokemon(): FunctionResponse<List<Pokemon>> {
         val response = safeApiCall { pokeApi.getAllPokemon() }
 
-        if(response.data == null)
+        if (response.data == null)
             return FunctionResponse.Error("Body null")
 
         return FunctionResponse.Success(response.data.results)
@@ -42,17 +36,18 @@ class PokemonDataSource (
     }
 
 
-    private suspend fun <T> safeApiCall(apiCall: suspend () -> Response<T>): FunctionResponse<T> {
-        return try {
+    private suspend fun <T> safeApiCall(apiCall: suspend () -> Response<T>): FunctionResponse<T & Any> {
+        return runCatching {
             val response = apiCall()
             val result = response.body()
+
             if (response.isSuccessful && result != null) {
                 FunctionResponse.Success(result)
             } else {
                 FunctionResponse.Error(response.message())
             }
-        } catch (e: Exception) {
-            FunctionResponse.Error(e.localizedMessage ?: "Unidentified error")
+        }.getOrElse {
+            FunctionResponse.Error(it.localizedMessage ?: "Unidentified error")
         }
     }
 

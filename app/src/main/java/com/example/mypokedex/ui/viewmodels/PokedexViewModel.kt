@@ -3,11 +3,11 @@ package com.example.mypokedex.ui.viewmodels
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.mypokedex.data.utils.FunctionResponse
 import com.example.mypokedex.domain.model.Pokemon
+import com.example.mypokedex.domain.repository.IPokemonRepository
 import com.example.mypokedex.ui.utils.InputEvents
 import com.example.mypokedex.ui.utils.UiState
-import com.example.mypokedex.data.utils.FunctionResponse
-import com.example.mypokedex.domain.repository.IPokemonRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -41,10 +41,6 @@ class PokedexViewModel @Inject constructor(
                         }
                     }
                 }
-            }
-
-            InputEvents.OnFirstTimeFinish -> {
-                _viewState.value = UiState.Success(null)
             }
             else -> {}
         }
