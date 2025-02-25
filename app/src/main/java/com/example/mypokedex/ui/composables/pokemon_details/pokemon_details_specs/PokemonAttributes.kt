@@ -16,10 +16,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mypokedex.R
+import com.example.mypokedex.domain.model.OtherSprites
 import com.example.mypokedex.domain.model.PokemonDetails
+import com.example.mypokedex.domain.model.ShowdownSprites
+import com.example.mypokedex.domain.model.Sprites
 
 @Composable
 fun PokemonAttributes(
@@ -33,7 +37,9 @@ fun PokemonAttributes(
                 colorResource(R.color.white),
                 shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp)
             )
-            .padding(top = 60.dp, start = 40.dp),
+            .padding(start = 20.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.Start
     ) {
         Row(
             horizontalArrangement = Arrangement.Center,
@@ -96,4 +102,20 @@ fun PokemonAttributes(
                 .padding(start = 10.dp)
         )
     }
+}
+
+@Preview
+@Composable
+fun PreviewPokemonAttributes() {
+    PokemonAttributes(
+        PokemonDetails(
+            "Buba",
+            1,
+            emptyList(),
+            1,
+            2,
+            Sprites(OtherSprites(ShowdownSprites("a"))),
+            emptyList()
+        )
+    )
 }

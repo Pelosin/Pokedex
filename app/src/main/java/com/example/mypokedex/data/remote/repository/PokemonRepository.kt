@@ -13,6 +13,4 @@ class PokemonRepository @Inject constructor(
     override suspend fun getAllPokemon() : FunctionResponse<List<Pokemon>>{
         return pokemonDataSource.getAllPokemon()
     }
-
-
 }

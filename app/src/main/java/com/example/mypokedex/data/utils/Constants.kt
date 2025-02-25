@@ -25,5 +25,10 @@ object Constants {
             return "$BASE_TYPE_IMAGE_URL$id.png"
         }
 
+        fun retrieveUrlId(url : String) =
+            url.removeSuffix("/").split("/").lastOrNull()
+
+
+
     }
 }

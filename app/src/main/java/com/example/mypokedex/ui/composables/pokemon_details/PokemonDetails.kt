@@ -16,6 +16,8 @@ import com.example.mypokedex.domain.model.OtherSprites
 import com.example.mypokedex.domain.model.PokemonDetails
 import com.example.mypokedex.domain.model.ShowdownSprites
 import com.example.mypokedex.domain.model.Sprites
+import com.example.mypokedex.domain.model.Type
+import com.example.mypokedex.domain.model.TypeDetail
 import com.example.mypokedex.ui.composables.pokedex_topbar.PokemonDetailsTopbar
 import com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_image.PokemonDetailsImage
 import com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonDetailSpecs
@@ -27,11 +29,9 @@ fun PokemonDetails(
     pokemonDetails: PokemonDetails,
     navController: NavController
 ) {
-    val color = if(pokemonDetails.types.isEmpty()) {
-        Color.Gray
-    } else {
+    val color =
         getPokemonTypeColor(pokemonDetails.types[0].type.name)
-    }
+
 
     Scaffold(
         topBar = {
@@ -70,7 +70,7 @@ fun PokeDetailsPreview() {
         PokemonDetails(
             "Buba",
             1,
-            emptyList(),
+            listOf(Type(0, TypeDetail("ghost", "url"))),
             1,
             2,
             Sprites(OtherSprites(ShowdownSprites("a"))),

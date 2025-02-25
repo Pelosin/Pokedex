@@ -4,11 +4,13 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mypokedex.data.utils.FunctionResponse
+import com.example.mypokedex.di.IoDispatcher
 import com.example.mypokedex.domain.model.PokemonDetails
 import com.example.mypokedex.domain.repository.IPokemonDetailRepository
 import com.example.mypokedex.ui.utils.InputEvents
 import com.example.mypokedex.ui.utils.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -16,7 +18,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PokemonDetailsViewModel @Inject constructor(
-    private val pokemonDetailRepository: IPokemonDetailRepository
+    private val pokemonDetailRepository: IPokemonDetailRepository,
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
 
@@ -26,7 +29,7 @@ class PokemonDetailsViewModel @Inject constructor(
     fun onInputEvent(inputEvents: InputEvents) {
         when(inputEvents) {
             is InputEvents.OnDetailsApiCall -> {
-                viewModelScope.launch {
+                viewModelScope.launch(ioDispatcher) {
                     when(val response =
                         pokemonDetailRepository.getPokemonByName(inputEvents.name)) {
                         is FunctionResponse.Success -> {
