@@ -21,7 +21,6 @@ fun PokemonList(
     pokeList: List<Pokemon>,
     navController: NavController
 ) {
-    val pokemonDetailsViewModel
 
     Box(
         modifier = Modifier
