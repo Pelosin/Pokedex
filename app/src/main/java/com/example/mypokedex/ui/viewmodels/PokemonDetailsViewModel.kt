@@ -27,24 +27,27 @@ class PokemonDetailsViewModel @Inject constructor(
     val viewState = _viewState.asStateFlow()
 
     fun onInputEvent(inputEvents: InputEvents) {
-        when(inputEvents) {
+        when (inputEvents) {
             is InputEvents.OnDetailsApiCall -> {
                 viewModelScope.launch(ioDispatcher) {
-                    when(val response =
+                    when (val response =
                         pokemonDetailRepository.getPokemonByName(inputEvents.name)) {
                         is FunctionResponse.Success -> {
                             response.data?.let {
                                 _viewState.value = UiState.Success(it)
                             }
                         }
+
                         is FunctionResponse.Error -> {
-                            response.message?.let { Log.e("MyPokemonDetailsFailure", it)
+                            response.message?.let {
+                                Log.e("MyPokemonDetailsFailure", it)
                                 _viewState.value = UiState.Error(response.message)
                             }
                         }
                     }
                 }
             }
+
             else -> {}
         }
     }

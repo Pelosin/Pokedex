@@ -15,10 +15,11 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun FirstTimeScreen(
-    onClick : () -> Unit
+    onClick: () -> Unit
 ) {
-    Column(modifier = Modifier
-        .fillMaxSize(),
+    Column(
+        modifier = Modifier
+            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -37,5 +38,5 @@ fun FirstTimeScreen(
 @Preview(showBackground = true)
 @Composable
 fun PreviewFirstTimeScreen() {
-    FirstTimeScreen {  }
+    FirstTimeScreen { }
 }

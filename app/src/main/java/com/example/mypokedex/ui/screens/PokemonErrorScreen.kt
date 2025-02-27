@@ -21,13 +21,13 @@ import com.example.mypokedex.R
 
 @Composable
 fun PokemonErrorScreen(
-    error : String
+    error: String
 ) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
 
-    ){
+    ) {
         Column(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally

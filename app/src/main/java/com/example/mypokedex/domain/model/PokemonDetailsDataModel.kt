@@ -7,30 +7,30 @@ data class PokemonDetails(
     val order: Int,
     val types: List<Type>,
     val weight: Int,
-    val height : Int,
+    val height: Int,
     val sprites: Sprites,
     @SerializedName("stats")
-    val statsList : List<Stats>
+    val statsList: List<Stats>
 )
 
 data class Stats(
     @SerializedName("base_stat")
-    val baseStat : Int,
+    val baseStat: Int,
     @SerializedName("stat")
-    val statType : StatType
+    val statType: StatType
 )
 
 data class StatType(
-    val name : String
+    val name: String
 )
 
 data class ShowdownSprites(
     @SerializedName("front_default")
-    val frontDefault : String
+    val frontDefault: String
 )
 
 data class Sprites(
-    val other : OtherSprites
+    val other: OtherSprites
 )
 
 data class Type(
@@ -40,11 +40,11 @@ data class Type(
 
 data class TypeDetail(
     val name: String,
-    val url : String,
+    val url: String,
 )
 
 data class OtherSprites(
-    val showdown : ShowdownSprites
+    val showdown: ShowdownSprites
 )
 
 

@@ -23,7 +23,7 @@ class NavigationViewModel @Inject constructor(
 
     fun checkForRoute() {
         viewModelScope.launch(ioDispatcher) {
-            if(firstOpenRepository.getIsFirstOpen()) {
+            if (firstOpenRepository.getIsFirstOpen()) {
                 _navigationState.value = Screen.OnBoarding.route
             } else {
                 _navigationState.value = Screen.Main.route

@@ -10,21 +10,21 @@ import retrofit2.http.Path
 
 interface PokeApi {
     @GET("pokemon/?limit=200")
-    suspend fun getAllPokemon() : Response<PokemonResponse>
+    suspend fun getAllPokemon(): Response<PokemonResponse>
 
     @GET("pokemon/{name}")
     suspend fun getPokemonByName(
-        @Path("name") name : String
-    ) : Response<PokemonDetails>
+        @Path("name") name: String
+    ): Response<PokemonDetails>
 
     @GET("evolution-chain/{id}")
     suspend fun getEvolutionChain(
-        @Path("id") id : String
-    ) : Response<EvolutionResponse>
+        @Path("id") id: String
+    ): Response<EvolutionResponse>
 
     @GET("pokemon-species/{name}")
     suspend fun getSpecies(
-        @Path("name") name : String
-    ) : Response<SpeciesResponse>
+        @Path("name") name: String
+    ): Response<SpeciesResponse>
 
 }

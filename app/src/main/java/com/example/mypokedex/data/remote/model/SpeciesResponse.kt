@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class SpeciesResponse(
     @SerializedName("evolution_chain")
-    val speciesEvolutionUrl : EvolutionUrl
+    val speciesEvolutionUrl: EvolutionUrl
 )
 
 data class EvolutionUrl(
-    val url : String
+    val url: String
 )

@@ -19,7 +19,7 @@ import com.example.mypokedex.domain.model.Pokemon
 @Composable
 fun PokemonListItem(
     pokemon: Pokemon,
-    fakeId: Int,
+    fakeId: String,
     onClick: () -> Unit
 ) {
     Card(
@@ -47,7 +47,7 @@ fun PokemonListItem(
 @Preview(showBackground = true)
 @Composable
 fun PreviewPokemonList() {
-    val pokemon = Pokemon("Buba")
+    val pokemon = Pokemon("Buba", "")
 
-    PokemonListItem(pokemon, 1) {}
+    PokemonListItem(pokemon, "1") {}
 }

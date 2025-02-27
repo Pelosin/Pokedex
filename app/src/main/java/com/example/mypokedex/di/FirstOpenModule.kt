@@ -14,5 +14,5 @@ abstract class FirstOpenModule {
 
     @Binds
     @ViewModelScoped
-    abstract fun bindIsFirstRepository(isFirstOpenRepository: IsFirstOpenRepository) : IIsFirstOpenRepository
+    abstract fun bindIsFirstRepository(isFirstOpenRepository: IsFirstOpenRepository): IIsFirstOpenRepository
 }

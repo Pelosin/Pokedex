@@ -1,26 +1,38 @@
 package com.example.mypokedex.ui.mapper
 
 import EvolutionChain
-import com.example.mypokedex.data.utils.Constants
 import com.example.mypokedex.domain.model.Evolution
+import com.example.mypokedex.utils.retrieveImageUrl
+import com.example.mypokedex.utils.retrieveUrlId
+import javax.inject.Inject
 
-class EvolutionChainMapper {
-    fun map(evolutionChain: EvolutionChain): List<String> {
+class EvolutionChainMapper @Inject constructor() {
+    operator fun invoke(evolutionChain: EvolutionChain) : List<Evolution> {
         val evolutionQueue = ArrayList<Evolution>()
-        evolutionQueue.add(Evolution(
-            evolutionChain.species.name,
-            Constants.Network.retrieveImageUrl(Constants.Network.retrieveUrlId(evolutionChain.species.url))
-        ))
+        evolutionQueue.add(
+            Evolution(
+                evolutionChain.species.name,
+                evolutionChain.species.url
+                    .retrieveUrlId()
+                    .retrieveImageUrl()
+            )
+        )
 
         var evolvesTo = evolutionChain.evolvesTo
         while (evolvesTo.isNotEmpty()) {
             evolvesTo.forEach {
-                evolutionQueue.add(it.species.name)
+                evolutionQueue.add(
+                    Evolution(
+                        it.species.name,
+                        it.species.url
+                            .retrieveUrlId()
+                            .retrieveImageUrl()
+                    )
+                )
             }
             evolvesTo = evolvesTo[0].evolvesTo
         }
 
         return evolutionQueue
-
     }
 }

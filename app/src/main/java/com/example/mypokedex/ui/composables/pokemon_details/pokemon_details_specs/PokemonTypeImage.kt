@@ -14,16 +14,16 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.SubcomposeAsyncImage
 import coil3.request.ImageRequest
 import com.example.mypokedex.R
-import com.example.mypokedex.data.utils.Constants
 import com.example.mypokedex.domain.model.TypeDetail
+import com.example.mypokedex.utils.retrieveTypeImageUrl
 
 @Composable
 fun PokemonTypeImage(
-    type : TypeDetail
+    type: TypeDetail
 ) {
     SubcomposeAsyncImage(
         model = ImageRequest.Builder(LocalContext.current)
-            .data(Constants.Network.retrieveTypeImageUrl(type.url))
+            .data(type.url.retrieveTypeImageUrl())
             .build(),
         contentDescription = null,
         modifier = Modifier

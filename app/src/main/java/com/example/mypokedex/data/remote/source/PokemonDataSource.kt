@@ -1,4 +1,4 @@
-package com.example.mypokedex.data.remote.datasource
+package com.example.mypokedex.data.remote.source
 
 import EvolutionResponse
 import com.example.mypokedex.data.remote.api.PokeApi

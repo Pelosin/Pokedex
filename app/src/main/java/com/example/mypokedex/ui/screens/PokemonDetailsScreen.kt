@@ -16,7 +16,7 @@ fun PokemonDetailScreen(
     name: String,
     navController: NavController
 ) {
-    val pokemonDetailsViewModel : PokemonDetailsViewModel = hiltViewModel()
+    val pokemonDetailsViewModel: PokemonDetailsViewModel = hiltViewModel()
 
     pokemonDetailsViewModel.onInputEvent(InputEvents.OnDetailsApiCall(name))
 
@@ -30,6 +30,7 @@ fun PokemonDetailScreen(
         is UiState.Error -> {
             PokemonErrorScreen(myState.message)
         }
+
         UiState.Loading -> {}
     }
 }

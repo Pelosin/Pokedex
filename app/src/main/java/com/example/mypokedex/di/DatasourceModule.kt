@@ -1,7 +1,7 @@
 package com.example.mypokedex.di
 
-import com.example.mypokedex.data.remote.datasource.IPokemonDataSource
-import com.example.mypokedex.data.remote.datasource.PokemonDataSource
+import com.example.mypokedex.data.remote.source.IPokemonDataSource
+import com.example.mypokedex.data.remote.source.PokemonDataSource
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,5 +14,5 @@ abstract class DatasourceModule {
 
     @Binds
     @Singleton
-    abstract fun bindPokemonDataSource(pokemonDataSource: PokemonDataSource) : IPokemonDataSource
+    abstract fun bindPokemonDataSource(pokemonDataSource: PokemonDataSource): IPokemonDataSource
 }

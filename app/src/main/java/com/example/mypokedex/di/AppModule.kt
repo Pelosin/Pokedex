@@ -31,20 +31,20 @@ object AppModule {
 
     @Provides
     @IoDispatcher
-    fun provideIoDispatcher() : CoroutineDispatcher = Dispatchers.IO
+    fun provideIoDispatcher(): CoroutineDispatcher = Dispatchers.IO
 
     @Provides
     @DefaultDispatcher
-    fun provideDefaultDispatcher() : CoroutineDispatcher = Dispatchers.Default
+    fun provideDefaultDispatcher(): CoroutineDispatcher = Dispatchers.Default
 
     @Provides
     @MainDispatcher
-    fun provideMainDispatcher() : CoroutineDispatcher = Dispatchers.Main
+    fun provideMainDispatcher(): CoroutineDispatcher = Dispatchers.Main
 
     @Provides
     @Singleton
     fun providesSharedPreferences(
         @ApplicationContext context: Context,
-    ) : SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
+    ): SharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
 
 }

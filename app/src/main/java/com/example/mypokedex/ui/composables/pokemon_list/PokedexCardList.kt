@@ -25,13 +25,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
+import coil3.request.crossfade
 import com.example.mypokedex.R
-import com.example.mypokedex.data.utils.Constants
 import com.example.mypokedex.ui.composables.loading_image.LoadingImage
+import com.example.mypokedex.utils.retrieveImageUrl
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 
 @Composable
-fun PokedexCardList(fakeId: Int) {
+fun PokedexCardList(fakeId: String) {
 
     val infiniteTransition = rememberInfiniteTransition()
     val scale by infiniteTransition.animateFloat(
@@ -64,8 +65,8 @@ fun PokedexCardList(fakeId: Int) {
 
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data(Constants.Network.retrieveImageUrl(fakeId))
-                // .crossfade(true)
+                .data(fakeId.retrieveImageUrl())
+                .crossfade(true)
                 .build(),
             onSuccess = { imageState.value = false },
             contentDescription = null,

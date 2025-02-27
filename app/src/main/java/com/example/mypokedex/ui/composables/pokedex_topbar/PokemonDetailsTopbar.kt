@@ -67,7 +67,8 @@ fun PokemonDetailsTopbar(
                         imageVector = ImageVector.vectorResource(R.drawable.baseline_star_outline_24),
                         contentDescription = null,
                         tint = Color.Yellow,
-                        modifier = Modifier.size(27.dp)
+                        modifier = Modifier
+                            .size(27.dp)
                             .padding()
                     )
                 }

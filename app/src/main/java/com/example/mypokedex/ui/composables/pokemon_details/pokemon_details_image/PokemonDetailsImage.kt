@@ -22,7 +22,7 @@ import com.example.mypokedex.R
 
 @Composable
 fun PokemonDetailsImage(
-    sprite : String,
+    sprite: String,
     color: Color
 ) {
     Box(

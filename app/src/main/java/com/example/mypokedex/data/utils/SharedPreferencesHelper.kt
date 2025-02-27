@@ -42,34 +42,37 @@ class SharedPreferencesHelper @Inject constructor(
     }
 
     suspend fun getData(key: String, defaultValue: Any): Any {
-        return withContext(ioDispatcher) {
-            when (defaultValue) {
+        var value : Any? = null
+        withContext(ioDispatcher) {
+             value = when (defaultValue) {
                 is String -> {
-                    sharedPreferences.getString(key, defaultValue) ?: defaultValue
+                    sharedPreferences.getString(key, defaultValue)
                 }
 
                 is Boolean -> {
-                    sharedPreferences.getBoolean(key, defaultValue) ?: defaultValue
+                    sharedPreferences.getBoolean(key, defaultValue)
                 }
 
                 is Int -> {
-                    sharedPreferences.getInt(key, defaultValue) ?: defaultValue
+                    sharedPreferences.getInt(key, defaultValue)
                 }
 
                 is Long -> {
-                    sharedPreferences.getLong(key, defaultValue) ?: defaultValue
+                    sharedPreferences.getLong(key, defaultValue)
 
                 }
 
                 is Float -> {
-                    sharedPreferences.getFloat(key, defaultValue) ?: defaultValue
+                    sharedPreferences.getFloat(key, defaultValue)
                 }
 
                 else -> {
-                    throw IllegalArgumentException("The type specified is not valid")
+                    defaultValue
                 }
             }
         }
+        return value ?: defaultValue
+
     }
 
     suspend fun removeData(key: String) {

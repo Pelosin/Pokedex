@@ -5,5 +5,5 @@ import com.example.mypokedex.domain.model.Pokemon
 
 interface IPokemonRepository {
 
-    suspend fun getAllPokemon() : FunctionResponse<List<Pokemon>>
+    suspend fun getAllPokemon(): FunctionResponse<List<Pokemon>>
 }

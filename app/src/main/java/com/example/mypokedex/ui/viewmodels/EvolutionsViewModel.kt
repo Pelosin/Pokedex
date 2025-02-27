@@ -26,13 +26,14 @@ class EvolutionsViewModel @Inject constructor(
     val viewState = _viewState.asStateFlow()
 
     fun onInputEvent(inputEvents: InputEvents) {
-        when(inputEvents) {
+        when (inputEvents) {
             is InputEvents.OnGetEvolutions -> {
                 viewModelScope.launch(ioDispatcher) {
-                    when(val state = evolutionRepository.getEvolutionChain(inputEvents.name)) {
+                    when (val state = evolutionRepository.getEvolutionChain(inputEvents.name)) {
                         is FunctionResponse.Success -> {
                             _viewState.value = UiState.Success(state.data)
                         }
+
                         is FunctionResponse.Error -> {
                             _viewState.value = UiState.Error("Lista vazia")
                         }
@@ -40,6 +41,7 @@ class EvolutionsViewModel @Inject constructor(
 
                 }
             }
+
             else -> {}
         }
     }

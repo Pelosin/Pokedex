@@ -8,7 +8,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
@@ -21,7 +20,7 @@ import com.example.mypokedex.domain.model.TypeDetail
 import com.example.mypokedex.ui.composables.pokedex_topbar.PokemonDetailsTopbar
 import com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_image.PokemonDetailsImage
 import com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonDetailSpecs
-import com.example.mypokedex.ui.utils.PokemonColor.getPokemonTypeColor
+import com.example.mypokedex.utils.getTypeColor
 
 @ExperimentalMaterial3Api
 @Composable
@@ -30,7 +29,7 @@ fun PokemonDetails(
     navController: NavController
 ) {
     val color =
-        getPokemonTypeColor(pokemonDetails.types[0].type.name)
+        pokemonDetails.types.first().type.name.getTypeColor()
 
 
     Scaffold(
@@ -54,7 +53,8 @@ fun PokemonDetails(
                 color
             )
             PokemonDetailSpecs(
-                pokemonDetails
+                pokemonDetails,
+                navController
             )
         }
     }

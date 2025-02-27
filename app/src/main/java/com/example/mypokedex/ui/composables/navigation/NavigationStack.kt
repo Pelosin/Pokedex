@@ -20,7 +20,7 @@ fun NavigationStack(
 ) {
     val navController = rememberNavController()
 
-    val navigationViewModel : NavigationViewModel = hiltViewModel()
+    val navigationViewModel: NavigationViewModel = hiltViewModel()
 
     val startDestination =
         navigationViewModel.navigationState.collectAsStateWithLifecycle().value

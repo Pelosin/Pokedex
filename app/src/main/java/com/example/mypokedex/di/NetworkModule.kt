@@ -22,9 +22,9 @@ abstract class NetworkModule {
 
     @Binds
     @ViewModelScoped
-    abstract fun bindPokemonDetailsRepo(pokemonDetailRepository : PokemonDetailsRepository): IPokemonDetailRepository
+    abstract fun bindPokemonDetailsRepo(pokemonDetailRepository: PokemonDetailsRepository): IPokemonDetailRepository
 
     @Binds
     @ViewModelScoped
-    abstract fun bindEvolutionRepository(evolutionRepository: EvolutionRepository) : IEvolutionsRepository
+    abstract fun bindEvolutionRepository(evolutionRepository: EvolutionRepository): IEvolutionsRepository
 }
