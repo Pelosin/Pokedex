@@ -3,7 +3,9 @@ package com.example.mypokedex.data.remote.repository
 import com.example.mypokedex.data.remote.source.IPokemonDataSource
 import com.example.mypokedex.data.utils.FunctionResponse
 import com.example.mypokedex.domain.model.Pokemon
+import com.example.mypokedex.domain.model.PokemonDetails
 import com.example.mypokedex.domain.repository.IPokemonRepository
+import com.example.mypokedex.ui.mapper.PokemonMapper
 import javax.inject.Inject
 
 class PokemonRepository @Inject constructor(

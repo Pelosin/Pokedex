@@ -30,10 +30,10 @@ class PokemonDetailsViewModel @Inject constructor(
         when (inputEvents) {
             is InputEvents.OnDetailsApiCall -> {
                 viewModelScope.launch(ioDispatcher) {
-                    when (val response =
-                        pokemonDetailRepository.getPokemonByName(inputEvents.name)) {
+                    when (val response = pokemonDetailRepository.getPokemonByName(inputEvents.name)) {
                         is FunctionResponse.Success -> {
                             response.data?.let {
+                                Log.i("MyPokemons", it.name)
                                 _viewState.value = UiState.Success(it)
                             }
                         }

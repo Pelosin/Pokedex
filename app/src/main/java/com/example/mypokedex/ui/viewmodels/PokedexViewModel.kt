@@ -8,8 +8,11 @@ import com.example.mypokedex.data.utils.FunctionResponse
 import com.example.mypokedex.di.DefaultDispatcher
 import com.example.mypokedex.di.IoDispatcher
 import com.example.mypokedex.domain.model.Pokemon
+import com.example.mypokedex.domain.repository.IPokemonDetailRepository
 import com.example.mypokedex.domain.repository.IPokemonRepository
 import com.example.mypokedex.ui.utils.InputEvents
+import com.example.mypokedex.ui.utils.PokedexUiState
+import com.example.mypokedex.ui.utils.PokemonDetailsUiState
 import com.example.mypokedex.ui.utils.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
@@ -21,13 +24,14 @@ import javax.inject.Inject
 @HiltViewModel
 class PokedexViewModel @Inject constructor(
     private val pokemonRepository: IPokemonRepository,
+    private val pokemonDetailsRepository: IPokemonDetailRepository,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
     @DefaultDispatcher private val defaultDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
 
-    private val _viewState = MutableStateFlow<UiState<List<Pokemon>>>(UiState.Loading)
-    val viewState = _viewState.asStateFlow()
+    private val _pokedexState = MutableStateFlow<PokedexUiState>(PokedexUiState.Loading)
+    val pokedexState = _pokedexState.asStateFlow()
 
     private var pokedexList: List<Pokemon> = emptyList()
 
@@ -39,16 +43,14 @@ class PokedexViewModel @Inject constructor(
                 viewModelScope.launch(ioDispatcher) {
                     when (val response = pokemonRepository.getAllPokemon()) {
                         is FunctionResponse.Success -> {
-                            response.data?.let {
-                                pokedexList = response.data
-                                _viewState.value = UiState.Success(response.data)
-                            }
+                            persistPokemonResponse(response)
+                            fetchPokemonDetails()
                         }
 
                         is FunctionResponse.Error -> {
                             response.message?.let {
                                 Log.e("MyPokemonFailure", it)
-                                _viewState.value = UiState.Error("Erro doido")
+                                _pokedexState.value = PokedexUiState.Error(it)
                             }
                         }
                     }
@@ -58,27 +60,77 @@ class PokedexViewModel @Inject constructor(
             is InputEvents.SearchQueryInput -> {
                 viewModelScope.launch(defaultDispatcher) {
                     searchQuery.value = inputEvents.query
-                    val filteredList =
-                        pokedexList.filter { it.name.contains(inputEvents.query.lowercase()) }
-                    _viewState.value = UiState.Success(filteredList)
+                    try {
+                        (_pokedexState.value as PokedexUiState.Success).data.filter {
+                            it.first.name.contains(inputEvents.query.lowercase())
+                        }
+                    } catch (e : ClassCastException){
+                        _pokedexState.value =
+                            PokedexUiState.Error(e.stackTraceToString())
+                    }
                 }
             }
 
             InputEvents.OnAToZSort -> {
-                viewModelScope.launch(defaultDispatcher) {
-                    val sortedList = pokedexList.sortedBy { it.name }
-                    _viewState.value = UiState.Success(sortedList)
-                }
+               viewModelScope.launch(defaultDispatcher) {
+                   try {
+                       (_pokedexState.value as PokedexUiState.Success).data.sortedBy {
+                           it.first.name
+                       }
+                   }catch (e: ClassCastException) {
+                       _pokedexState.value = PokedexUiState.Error(
+                           e.stackTraceToString()
+                       )
+                   }
+               }
             }
 
             InputEvents.OnZToASort -> {
-                viewModelScope.launch(defaultDispatcher) {
-                    val sortedList = pokedexList.sortedBy { it.name }.reversed()
-                    _viewState.value = UiState.Success(sortedList)
+                try {
+                    (_pokedexState.value as PokedexUiState.Success).data.sortedBy {
+                        it.first.name
+                    }.reversed()
+                }catch (e: ClassCastException) {
+                    _pokedexState.value = PokedexUiState.Error(
+                        e.stackTraceToString()
+                    )
                 }
             }
 
             else -> {}
+        }
+    }
+
+    private fun persistPokemonResponse(response: FunctionResponse<List<Pokemon>>) {
+        response.data?.let { list ->
+            pokedexList = list
+            val pokedexPairList =
+                list.map {
+                    it to MutableStateFlow<PokemonDetailsUiState>(
+                        PokemonDetailsUiState.Loading
+                    )
+                }
+            _pokedexState.value = PokedexUiState.Success(pokedexPairList)
+        }
+    }
+
+    private fun fetchPokemonDetails() {
+        viewModelScope.launch(ioDispatcher) {
+            val stateValue = _pokedexState.value as PokedexUiState.Success
+            stateValue.data.forEach { pair ->
+                when (val response =
+                    pokemonDetailsRepository.getPokemonByName(pair.first.name)) {
+
+                    is FunctionResponse.Error -> {
+                        _pokedexState.value = PokedexUiState.Error("Details failled")
+                    }
+                    is FunctionResponse.Success -> {
+                        response.data?.let {
+                            pair.second.value = PokemonDetailsUiState.Success(response.data)
+                        } ?: PokemonDetailsUiState.Error("Empty Details")
+                    }
+                }
+            }
         }
     }
 }

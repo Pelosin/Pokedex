@@ -79,4 +79,6 @@ dependencies {
     implementation (libs.androidx.hilt.navigation.fragment)
     implementation (libs.androidx.hilt.navigation.compose)
     implementation (libs.androidx.lifecycle.viewmodel.compose)
+    testImplementation(libs.io.mockk.mockk)
+    testImplementation (libs.kotlinx.coroutines.test)
 }

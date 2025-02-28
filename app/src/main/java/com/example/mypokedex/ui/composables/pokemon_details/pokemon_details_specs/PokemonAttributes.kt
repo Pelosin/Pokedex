@@ -68,7 +68,7 @@ fun PokemonAttributes(
             modifier = Modifier.padding(bottom = 5.dp, top = 5.dp)
         )
 
-        Row {
+        Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             PokemonStats(pokemonDetails.statsList)
         }
 

@@ -2,6 +2,7 @@ package com.example.mypokedex.ui.screens
 
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
@@ -18,7 +19,9 @@ fun PokemonDetailScreen(
 ) {
     val pokemonDetailsViewModel: PokemonDetailsViewModel = hiltViewModel()
 
-    pokemonDetailsViewModel.onInputEvent(InputEvents.OnDetailsApiCall(name))
+    LaunchedEffect(true) {
+        pokemonDetailsViewModel.onInputEvent(InputEvents.OnDetailsApiCall(name))
+    }
 
     when (val myState = pokemonDetailsViewModel.viewState.collectAsStateWithLifecycle().value) {
         is UiState.Success -> {

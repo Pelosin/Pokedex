@@ -19,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -35,7 +36,7 @@ import com.example.mypokedex.ui.composables.loading_image.LoadingImage
 import com.example.mypokedex.ui.composables.pokedex_topbar.PokedexTopbar
 import com.example.mypokedex.ui.composables.pokemon_list.PokemonList
 import com.example.mypokedex.ui.utils.InputEvents
-import com.example.mypokedex.ui.utils.UiState
+import com.example.mypokedex.ui.utils.PokedexUiState
 import com.example.mypokedex.ui.viewmodels.PokedexViewModel
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 
@@ -47,7 +48,12 @@ fun PokedexScreen(
 
     val pokedexViewModel: PokedexViewModel = hiltViewModel()
 
-    pokedexViewModel.onInputEvent(InputEvents.OnCallApi)
+    val pokedexState =
+        pokedexViewModel.pokedexState.collectAsStateWithLifecycle().value
+
+    LaunchedEffect(Unit) {
+        pokedexViewModel.onInputEvent(InputEvents.OnCallApi)
+    }
 
     val expandedFilter = remember { mutableStateOf(false) }
     val expandedAlpha = remember { mutableStateOf(false) }
@@ -124,22 +130,15 @@ fun PokedexScreen(
                 }
             }
 
-            when (val myAction =
-                pokedexViewModel.viewState.collectAsStateWithLifecycle().value) {
-                is UiState.Success -> {
-                    myAction.data?.let {
-                        PokemonList(
-                            it,
-                            navController
-                        )
-                    }
-                }
+            when (pokedexState) {
 
-                is UiState.Error -> {
-                    PokemonErrorScreen(myAction.message)
+                is PokedexUiState.Success -> {
+                    PokemonList(
+                        pokedexState.data,
+                        navController
+                    )
                 }
-
-                UiState.Loading -> {
+                PokedexUiState.Loading -> {
                     LoadingImage(
                         rememberDrawablePainter(
                             drawable = getDrawable(
@@ -148,6 +147,9 @@ fun PokedexScreen(
                             )
                         )
                     )
+                }
+                is PokedexUiState.Error -> {
+                    PokemonErrorScreen(pokedexState.message)
                 }
             }
         }
