@@ -125,7 +125,7 @@ fun PreviewPokemonEvolution() {
             emptyList(),
             1,
             2,
-            Sprites(OtherSprites(ShowdownSprites("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif"))),
+            Sprites(OtherSprites(ShowdownSprites("a")), null, "a"),
             emptyList()
         ),
         rememberNavController()

@@ -65,13 +65,13 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     //SplashScreen
-    implementation (libs.androidx.core.splashscreen)
+    implementation(libs.androidx.core.splashscreen)
 
     //Retrofit
     implementation(libs.retrofit)
 
     //Gson
-    implementation (libs.converter.gson)
+    implementation(libs.converter.gson)
 
     //Androidx Preferences
     implementation(libs.androidx.preference.ktx)
@@ -79,11 +79,11 @@ dependencies {
     //Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
-    implementation (libs.androidx.hilt.navigation.fragment)
-    implementation (libs.androidx.hilt.navigation.compose)
+    implementation(libs.androidx.hilt.navigation.fragment)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     //Navigation compose
-    implementation (libs.androidx.navigation.compose)
+    implementation(libs.androidx.navigation.compose)
 
     //Coil
     implementation(libs.coil.compose)
@@ -98,9 +98,9 @@ dependencies {
     ksp(libs.androidx.room.compiler)
 
     //Androidx lifecycle
-    implementation (libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 
     //Mockk
     testImplementation(libs.io.mockk.mockk)
-    testImplementation (libs.kotlinx.coroutines.test)
+    testImplementation(libs.kotlinx.coroutines.test)
 }

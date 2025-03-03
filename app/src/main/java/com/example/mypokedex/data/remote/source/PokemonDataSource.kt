@@ -18,7 +18,7 @@ class PokemonDataSource @Inject constructor(
         val response = safeApiCall { pokeApi.getAllPokemon() }
 
         if (response.data == null)
-            return FunctionResponse.Error("Body null")
+            return FunctionResponse.Error(response.message ?: "Body null")
 
         return FunctionResponse.Success(response.data.results)
     }

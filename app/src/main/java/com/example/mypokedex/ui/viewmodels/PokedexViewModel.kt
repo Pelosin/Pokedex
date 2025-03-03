@@ -13,7 +13,6 @@ import com.example.mypokedex.domain.repository.IPokemonRepository
 import com.example.mypokedex.ui.utils.InputEvents
 import com.example.mypokedex.ui.utils.PokedexUiState
 import com.example.mypokedex.ui.utils.PokemonDetailsUiState
-import com.example.mypokedex.ui.utils.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -64,7 +63,7 @@ class PokedexViewModel @Inject constructor(
                         (_pokedexState.value as PokedexUiState.Success).data.filter {
                             it.first.name.contains(inputEvents.query.lowercase())
                         }
-                    } catch (e : ClassCastException){
+                    } catch (e: ClassCastException) {
                         _pokedexState.value =
                             PokedexUiState.Error(e.stackTraceToString())
                     }
@@ -72,17 +71,17 @@ class PokedexViewModel @Inject constructor(
             }
 
             InputEvents.OnAToZSort -> {
-               viewModelScope.launch(defaultDispatcher) {
-                   try {
-                       (_pokedexState.value as PokedexUiState.Success).data.sortedBy {
-                           it.first.name
-                       }
-                   }catch (e: ClassCastException) {
-                       _pokedexState.value = PokedexUiState.Error(
-                           e.stackTraceToString()
-                       )
-                   }
-               }
+                viewModelScope.launch(defaultDispatcher) {
+                    try {
+                        (_pokedexState.value as PokedexUiState.Success).data.sortedBy {
+                            it.first.name
+                        }
+                    } catch (e: ClassCastException) {
+                        _pokedexState.value = PokedexUiState.Error(
+                            e.stackTraceToString()
+                        )
+                    }
+                }
             }
 
             InputEvents.OnZToASort -> {
@@ -90,10 +89,21 @@ class PokedexViewModel @Inject constructor(
                     (_pokedexState.value as PokedexUiState.Success).data.sortedBy {
                         it.first.name
                     }.reversed()
-                }catch (e: ClassCastException) {
+                } catch (e: ClassCastException) {
                     _pokedexState.value = PokedexUiState.Error(
                         e.stackTraceToString()
                     )
+                }
+            }
+
+            InputEvents.OnFavFilter -> {}
+            InputEvents.OnTypeFilter -> {
+                try {
+                    //_pokedexState.value =
+                    //(_pokedexState.value as PokedexUiState.Success).data.filter {
+                    //}
+                } catch (e: ClassCastException) {
+
                 }
             }
 
@@ -124,6 +134,7 @@ class PokedexViewModel @Inject constructor(
                     is FunctionResponse.Error -> {
                         _pokedexState.value = PokedexUiState.Error("Details failled")
                     }
+
                     is FunctionResponse.Success -> {
                         response.data?.let {
                             pair.second.value = PokemonDetailsUiState.Success(response.data)

@@ -10,13 +10,11 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.After
-import org.junit.Test
-
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.Test
 
 class PokemonRepositoryTest {
 
@@ -41,11 +39,10 @@ class PokemonRepositoryTest {
     @Test
     fun validateGetAllPokemon() = runTest {
         val listOfPokemons = listOf(Pokemon("Buba", "a"))
-        //Given an instance of a repository
+
         every { functionResponse.data } returns listOfPokemons
         coEvery { pokemonDataSourceMock.getAllPokemon() } returns functionResponse
         val response = victim.getAllPokemon()
-        //When I request getAllPokemon
 
         coVerify(exactly = 1) {
             victim.getAllPokemon()
@@ -53,6 +50,21 @@ class PokemonRepositoryTest {
         }
 
         assertEquals(response.data, listOfPokemons)
-        //Then I get all pokemon from dataSource
+    }
+
+    @Test
+    fun `test getAllPokemon Error`() = runTest {
+        val errorMessage = "APIError"
+
+        every { functionResponse.message } returns errorMessage
+        coEvery { pokemonDataSourceMock.getAllPokemon() } returns functionResponse
+        val response = victim.getAllPokemon()
+
+        coVerify(exactly = 1) {
+            victim.getAllPokemon()
+            pokemonDataSourceMock.getAllPokemon()
+        }
+
+        assertEquals(response.message, errorMessage)
     }
 }

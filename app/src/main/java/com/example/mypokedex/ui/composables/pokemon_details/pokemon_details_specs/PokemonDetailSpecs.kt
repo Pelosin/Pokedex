@@ -129,7 +129,7 @@ fun PokemonDetailsSpecPreview() {
             emptyList(),
             1,
             2,
-            Sprites(OtherSprites(ShowdownSprites("a"))),
+            Sprites(OtherSprites(ShowdownSprites("a")), null, "a"),
             emptyList()
         ),
         rememberNavController()

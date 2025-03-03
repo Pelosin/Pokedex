@@ -42,9 +42,9 @@ class SharedPreferencesHelper @Inject constructor(
     }
 
     suspend fun getData(key: String, defaultValue: Any): Any {
-        var value : Any? = null
+        var value: Any? = null
         withContext(ioDispatcher) {
-             value = when (defaultValue) {
+            value = when (defaultValue) {
                 is String -> {
                     sharedPreferences.getString(key, defaultValue)
                 }

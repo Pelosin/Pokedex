@@ -33,7 +33,8 @@ fun PokemonStats(
             val stat = statsList[it]
 
             Row(
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .padding(end = 30.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {

@@ -138,6 +138,7 @@ fun PokedexScreen(
                         navController
                     )
                 }
+
                 PokedexUiState.Loading -> {
                     LoadingImage(
                         rememberDrawablePainter(
@@ -148,6 +149,7 @@ fun PokedexScreen(
                         )
                     )
                 }
+
                 is PokedexUiState.Error -> {
                     PokemonErrorScreen(pokedexState.message)
                 }

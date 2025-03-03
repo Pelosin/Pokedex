@@ -73,7 +73,7 @@ fun PokeDetailsPreview() {
             listOf(Type(0, TypeDetail("ghost", "url"))),
             1,
             2,
-            Sprites(OtherSprites(ShowdownSprites("a"))),
+            Sprites(OtherSprites(ShowdownSprites("a")), null, "a"),
             emptyList()
         ),
         rememberNavController()

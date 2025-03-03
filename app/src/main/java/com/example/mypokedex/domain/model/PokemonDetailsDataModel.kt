@@ -30,7 +30,30 @@ data class ShowdownSprites(
 )
 
 data class Sprites(
-    val other: OtherSprites
+    val other: OtherSprites,
+    val versions: SpriteVersions? = null,
+    @SerializedName("front_default")
+    val standardFrontDefault: String
+)
+
+data class SpriteVersions(
+    @SerializedName("generation-v")
+    val generationV: GenerationFiveSprites
+)
+
+data class GenerationFiveSprites(
+    @SerializedName("black-white")
+    val blackWhite: BlackWhiteSprites
+)
+
+data class BlackWhiteSprites(
+    @SerializedName("animated")
+    val animatedSprite: AnimatedSprite
+)
+
+data class AnimatedSprite(
+    @SerializedName("front_default")
+    val animatedFrontDefault: String
 )
 
 data class Type(

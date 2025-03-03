@@ -25,31 +25,33 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 @Composable
 fun PokemonListItem(
-    pokemon: Pair<Pokemon, MutableStateFlow<PokemonDetailsUiState>>,
+    pokemonStatePair: Pair<Pokemon, MutableStateFlow<PokemonDetailsUiState>>,
     fakeId: String,
     onClick: () -> Unit
 ) {
-    val myDetailsState = pokemon.second.collectAsStateWithLifecycle().value
+    val myDetailsState = pokemonStatePair.second.collectAsStateWithLifecycle().value
 
     val colorState = remember { mutableStateOf(Color.Gray) }
 
-    when(myDetailsState) {
+    when (myDetailsState) {
         is PokemonDetailsUiState.Success -> {
             colorState.value = myDetailsState.data.types.first().type.name.getTypeColor()
         }
+
         PokemonDetailsUiState.Loading -> {}
         is PokemonDetailsUiState.Error -> {}
     }
 
     Card(
-        modifier = Modifier.size(75.dp)
+        modifier = Modifier
+            .size(75.dp)
             .background(color = colorState.value),
         onClick = { onClick() },
 
-    ) {
+        ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
-                pokemon.first.name.replaceFirstChar { it.uppercase() },
+                pokemonStatePair.first.name.replaceFirstChar { it.uppercase() },
                 Modifier
                     .padding(20.dp)
                     .weight(1f),

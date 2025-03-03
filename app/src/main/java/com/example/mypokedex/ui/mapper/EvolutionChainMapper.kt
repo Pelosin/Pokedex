@@ -7,7 +7,7 @@ import com.example.mypokedex.utils.retrieveUrlId
 import javax.inject.Inject
 
 class EvolutionChainMapper @Inject constructor() {
-    operator fun invoke(evolutionChain: EvolutionChain) : List<Evolution> {
+    operator fun invoke(evolutionChain: EvolutionChain): List<Evolution> {
         val evolutionQueue = ArrayList<Evolution>()
         evolutionQueue.add(
             Evolution(
