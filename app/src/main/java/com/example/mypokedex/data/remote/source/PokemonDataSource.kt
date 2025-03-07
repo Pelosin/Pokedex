@@ -1,54 +1,45 @@
 package com.example.mypokedex.data.remote.source
 
-import EvolutionResponse
+import android.util.Log
 import com.example.mypokedex.data.remote.api.PokeApi
-import com.example.mypokedex.data.remote.model.SpeciesResponse
-import com.example.mypokedex.data.utils.FunctionResponse
-import com.example.mypokedex.domain.model.Pokemon
-import com.example.mypokedex.domain.model.PokemonDetails
-import retrofit2.Response
+import com.example.mypokedex.di.IoDispatcher
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.async
 import javax.inject.Inject
 
 class PokemonDataSource @Inject constructor(
-    private val pokeApi: PokeApi
+    private val pokeApi: PokeApi,
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : IPokemonDataSource {
 
-
-    override suspend fun getAllPokemon(): FunctionResponse<List<Pokemon>> {
-        val response = safeApiCall { pokeApi.getAllPokemon() }
-
-        if (response.data == null)
-            return FunctionResponse.Error(response.message ?: "Body null")
-
-        return FunctionResponse.Success(response.data.results)
+    val coroutineExceptionHandler = CoroutineExceptionHandler { _, thrwoable ->
+        Log.d("thrwoable.printStackTrace()", thrwoable.stackTraceToString())
     }
 
-    override suspend fun getPokemonByName(name: String): FunctionResponse<PokemonDetails> {
-        return safeApiCall { pokeApi.getPokemonByName(name) }
-    }
+    override suspend fun getAllPokemon() =
+        CoroutineScope(ioDispatcher + coroutineExceptionHandler).async {
+            pokeApi.getAllPokemon()
+        }.await()
 
-    override suspend fun getEvolutionChain(id: String): FunctionResponse<EvolutionResponse> {
-        return safeApiCall { pokeApi.getEvolutionChain(id) }
-    }
+    override suspend fun getPokemonByName(name: String) =
+        CoroutineScope(ioDispatcher + coroutineExceptionHandler).async {
+            pokeApi.getPokemonByName(name)
+        }.await()
 
-    override suspend fun getSpecies(name: String): FunctionResponse<SpeciesResponse> {
-        return safeApiCall { pokeApi.getSpecies(name) }
-    }
+    override suspend fun getEvolutionChain(id: String) =
+        CoroutineScope(ioDispatcher + coroutineExceptionHandler).async {
+            pokeApi.getEvolutionChain(id)
+        }.await()
 
+    override suspend fun getSpecies(name: String) =
+        CoroutineScope(ioDispatcher + coroutineExceptionHandler).async {
+            pokeApi.getSpecies(name)
+        }.await()
 
-    private suspend fun <T> safeApiCall(apiCall: suspend () -> Response<T>): FunctionResponse<T & Any> {
-        return runCatching {
-            val response = apiCall()
-            val result = response.body()
-
-            if (response.isSuccessful && result != null) {
-                FunctionResponse.Success(result)
-            } else {
-                FunctionResponse.Error(response.message())
-            }
-        }.getOrElse {
-            FunctionResponse.Error(it.localizedMessage ?: "Unidentified error")
-        }
-    }
-
+    override suspend fun getTypes() =
+        CoroutineScope(ioDispatcher + coroutineExceptionHandler).async {
+            pokeApi.getTypes()
+        }.await()
 }

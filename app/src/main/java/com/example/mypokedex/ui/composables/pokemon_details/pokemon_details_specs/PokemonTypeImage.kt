@@ -14,16 +14,14 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.SubcomposeAsyncImage
 import coil3.request.ImageRequest
 import com.example.mypokedex.R
-import com.example.mypokedex.domain.model.TypeDetail
-import com.example.mypokedex.utils.retrieveTypeImageUrl
 
 @Composable
 fun PokemonTypeImage(
-    type: TypeDetail
+    typeSprite: String
 ) {
     SubcomposeAsyncImage(
         model = ImageRequest.Builder(LocalContext.current)
-            .data(type.url.retrieveTypeImageUrl())
+            .data(typeSprite)
             .build(),
         contentDescription = null,
         modifier = Modifier
@@ -44,5 +42,5 @@ fun PokemonTypeImage(
 @Preview(showBackground = true)
 @Composable
 fun PokemonTypeImagePreview() {
-    PokemonTypeImage(TypeDetail("Grass", "a"))
+    //PokemonTypeImage(TypeDetail("Grass", "a"))
 }

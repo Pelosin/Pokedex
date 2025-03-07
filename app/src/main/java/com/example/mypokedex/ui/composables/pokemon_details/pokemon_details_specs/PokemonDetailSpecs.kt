@@ -21,17 +21,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.mypokedex.R
-import com.example.mypokedex.domain.model.OtherSprites
-import com.example.mypokedex.domain.model.PokemonDetails
-import com.example.mypokedex.domain.model.ShowdownSprites
-import com.example.mypokedex.domain.model.Sprites
+import com.example.mypokedex.domain.model.Pokemon
 import kotlinx.coroutines.launch
 
 @Composable
 fun PokemonDetailSpecs(
-    pokemonDetails: PokemonDetails,
+    pokemon: Pokemon,
     navController: NavController
 ) {
     val scope = rememberCoroutineScope()
@@ -107,11 +103,11 @@ fun PokemonDetailSpecs(
         ) {
             when (it) {
                 0 -> {
-                    PokemonAttributes(pokemonDetails)
+                    PokemonAttributes(pokemon)
                 }
 
                 1 -> {
-                    PokemonEvolutions(pokemonDetails, navController)
+                    PokemonEvolutions(pokemon, navController)
                 }
             }
 
@@ -122,17 +118,17 @@ fun PokemonDetailSpecs(
 @Preview(showBackground = true)
 @Composable
 fun PokemonDetailsSpecPreview() {
-    PokemonDetailSpecs(
-        PokemonDetails(
-            "Buba",
-            1,
-            emptyList(),
-            1,
-            2,
-            Sprites(OtherSprites(ShowdownSprites("a")), null, "a"),
-            emptyList()
-        ),
-        rememberNavController()
-    )
+//    PokemonDetailSpecs(
+//        PokemonDetails(
+//            "Buba",
+//            1,
+//            emptyList(),
+//            1,
+//            2,
+//            Sprites(OtherSprites(ShowdownSprites("a")), null, "a"),
+//            emptyList()
+//        ),
+//        rememberNavController()
+//    )
 }
 

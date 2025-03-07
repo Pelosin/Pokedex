@@ -1,19 +1,21 @@
-package com.example.mypokedex.domain.model
+package com.example.mypokedex.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
 data class PokemonDetails(
     val name: String,
     val order: Int,
-    val types: List<Type>,
+    @SerializedName("types")
+    val pokemonDetailsTypeResponses: List<PokemonDetailsTypeResponse>,
     val weight: Int,
     val height: Int,
     val sprites: Sprites,
     @SerializedName("stats")
-    val statsList: List<Stats>
+    val statsResponseList: List<StatsResponse>,
+    val id: Int
 )
 
-data class Stats(
+data class StatsResponse(
     @SerializedName("base_stat")
     val baseStat: Int,
     @SerializedName("stat")
@@ -56,7 +58,7 @@ data class AnimatedSprite(
     val animatedFrontDefault: String
 )
 
-data class Type(
+data class PokemonDetailsTypeResponse(
     val slot: Int,
     val type: TypeDetail
 )

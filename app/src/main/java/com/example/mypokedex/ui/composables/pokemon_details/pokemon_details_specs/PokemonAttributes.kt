@@ -20,14 +20,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mypokedex.R
-import com.example.mypokedex.domain.model.OtherSprites
-import com.example.mypokedex.domain.model.PokemonDetails
-import com.example.mypokedex.domain.model.ShowdownSprites
-import com.example.mypokedex.domain.model.Sprites
+import com.example.mypokedex.domain.model.Pokemon
 
 @Composable
 fun PokemonAttributes(
-    pokemonDetails: PokemonDetails
+    pokemonDetails: Pokemon
 ) {
     Column(
         modifier = Modifier
@@ -55,7 +52,7 @@ fun PokemonAttributes(
             LazyRow(
             ) {
                 items(pokemonDetails.types.size) {
-                    PokemonTypeImage(pokemonDetails.types[it].type)
+                    PokemonTypeImage(pokemonDetails.types[it].sprite)
                 }
             }
         }
@@ -107,15 +104,15 @@ fun PokemonAttributes(
 @Preview
 @Composable
 fun PreviewPokemonAttributes() {
-    PokemonAttributes(
-        PokemonDetails(
-            "Buba",
-            1,
-            emptyList(),
-            1,
-            2,
-            Sprites(OtherSprites(ShowdownSprites("a")), null, "a"),
-            emptyList()
-        )
-    )
+//    PokemonAttributes(
+//        PokemonDetails(
+//            "Buba",
+//            1,
+//            emptyList(),
+//            1,
+//            2,
+//            Sprites(OtherSprites(ShowdownSprites("a")), null, "a"),
+//            emptyList()
+//        )
+//    )
 }

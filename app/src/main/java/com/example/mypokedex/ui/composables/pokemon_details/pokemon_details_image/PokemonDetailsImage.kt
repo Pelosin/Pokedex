@@ -25,6 +25,7 @@ fun PokemonDetailsImage(
     sprite: String,
     color: Color
 ) {
+
     Box(
         modifier = Modifier
             .fillMaxWidth()

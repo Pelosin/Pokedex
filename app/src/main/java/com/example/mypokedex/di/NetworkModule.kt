@@ -1,10 +1,6 @@
 package com.example.mypokedex.di
 
-import com.example.mypokedex.data.remote.repository.EvolutionRepository
-import com.example.mypokedex.data.remote.repository.PokemonDetailsRepository
-import com.example.mypokedex.data.remote.repository.PokemonRepository
-import com.example.mypokedex.domain.repository.IEvolutionsRepository
-import com.example.mypokedex.domain.repository.IPokemonDetailRepository
+import com.example.mypokedex.data.repository.PokemonRepository
 import com.example.mypokedex.domain.repository.IPokemonRepository
 import dagger.Binds
 import dagger.Module
@@ -19,12 +15,4 @@ abstract class NetworkModule {
     @Binds
     @ViewModelScoped
     abstract fun bindPokemonRepo(pokemonRepository: PokemonRepository): IPokemonRepository
-
-    @Binds
-    @ViewModelScoped
-    abstract fun bindPokemonDetailsRepo(pokemonDetailRepository: PokemonDetailsRepository): IPokemonDetailRepository
-
-    @Binds
-    @ViewModelScoped
-    abstract fun bindEvolutionRepository(evolutionRepository: EvolutionRepository): IEvolutionsRepository
 }

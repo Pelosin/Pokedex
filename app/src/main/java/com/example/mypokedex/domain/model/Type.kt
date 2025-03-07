@@ -1,7 +1,6 @@
 package com.example.mypokedex.domain.model
 
-data class RightPokemon(
+data class Type(
     val name: String,
-    val type: String,
-    val height: Int
+    val sprite: String
 )

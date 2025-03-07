@@ -10,13 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
-import com.example.mypokedex.domain.model.OtherSprites
-import com.example.mypokedex.domain.model.PokemonDetails
-import com.example.mypokedex.domain.model.ShowdownSprites
-import com.example.mypokedex.domain.model.Sprites
+import com.example.mypokedex.domain.model.Pokemon
 import com.example.mypokedex.domain.model.Type
-import com.example.mypokedex.domain.model.TypeDetail
 import com.example.mypokedex.ui.composables.pokedex_topbar.PokemonDetailsTopbar
 import com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_image.PokemonDetailsImage
 import com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonDetailSpecs
@@ -25,11 +20,15 @@ import com.example.mypokedex.utils.getTypeColor
 @ExperimentalMaterial3Api
 @Composable
 fun PokemonDetails(
-    pokemonDetails: PokemonDetails,
+    pokemon: Pokemon,
     navController: NavController
 ) {
+
+    val types = pokemon.types.takeIf { it.isNotEmpty() }
+        ?: listOf(Type("Unknown", ""))
+
     val color =
-        pokemonDetails.types.first().type.name.getTypeColor()
+        types.first().name.getTypeColor()
 
 
     Scaffold(
@@ -37,7 +36,7 @@ fun PokemonDetails(
             PokemonDetailsTopbar(
                 Modifier,
                 navController,
-                pokemonDetails.name.replaceFirstChar { it.uppercase() },
+                pokemon,
                 color
             )
         }
@@ -48,12 +47,15 @@ fun PokemonDetails(
                 .padding(innerPadding)
                 .background(color)
         ) {
+            val sprite = pokemon.sprites.let { map ->
+                map["gif"] ?: map["default"] ?: ""
+            }
             PokemonDetailsImage(
-                pokemonDetails.sprites.other.showdown.frontDefault,
+                sprite,
                 color
             )
             PokemonDetailSpecs(
-                pokemonDetails,
+                pokemon,
                 navController
             )
         }
@@ -66,16 +68,16 @@ fun PokemonDetails(
 @Preview(showBackground = true)
 @Composable
 fun PokeDetailsPreview() {
-    PokemonDetails(
-        PokemonDetails(
-            "Buba",
-            1,
-            listOf(Type(0, TypeDetail("ghost", "url"))),
-            1,
-            2,
-            Sprites(OtherSprites(ShowdownSprites("a")), null, "a"),
-            emptyList()
-        ),
-        rememberNavController()
-    )
+//    PokemonDetails(
+//        PokemonDetails(
+//            "Buba",
+//            1,
+//            listOf(PokemonDetailsTypeResponse(0, TypeDetail("ghost", "url"))),
+//            1,
+//            2,
+//            Sprites(OtherSprites(ShowdownSprites("a")), null, "a"),
+//            emptyList()
+//        ),
+//        rememberNavController()
+//    )
 }

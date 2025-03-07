@@ -13,13 +13,10 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.mypokedex.domain.model.Pokemon
 import com.example.mypokedex.ui.composables.navigation.Screen
-import com.example.mypokedex.ui.utils.PokemonDetailsUiState
-import com.example.mypokedex.utils.retrieveUrlId
-import kotlinx.coroutines.flow.MutableStateFlow
 
 @Composable
 fun PokemonList(
-    pokemonStateList: List<Pair<Pokemon, MutableStateFlow<PokemonDetailsUiState>>>,
+    pokemonList: List<Pokemon>,
     navController: NavController
 ) {
 
@@ -33,13 +30,13 @@ fun PokemonList(
             horizontalArrangement = Arrangement.spacedBy(10.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            items(pokemonStateList.size) {
-                val pokemon = pokemonStateList[it]
+            items(pokemonList.size, key = { pokemonList[it].name }) {
+                val pokemon = pokemonList[it]
 
                 PokemonListItem(
                     pokemon,
-                    pokemon.first.url.retrieveUrlId()
-                ) { navController.navigate(Screen.Details.route + "/${pokemon.first.name}") }
+                    pokemon.sprites["default"]
+                ) { navController.navigate(Screen.Details.route + "/${pokemon.name}") }
             }
         }
     }
@@ -48,6 +45,4 @@ fun PokemonList(
 @Preview(showBackground = true)
 @Composable
 fun PokemonListPreview() {
-    val pokeList = listOf(Pokemon("Buba", "a"), Pokemon("Char", "a"))
-    //PokemonList(pokeList, rememberNavController())
 }

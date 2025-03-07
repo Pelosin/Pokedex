@@ -2,10 +2,12 @@ package com.example.mypokedex.ui.screens
 
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.DropdownMenu
@@ -19,7 +21,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.rememberTopAppBarState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -35,8 +36,7 @@ import com.example.mypokedex.R
 import com.example.mypokedex.ui.composables.loading_image.LoadingImage
 import com.example.mypokedex.ui.composables.pokedex_topbar.PokedexTopbar
 import com.example.mypokedex.ui.composables.pokemon_list.PokemonList
-import com.example.mypokedex.ui.utils.InputEvents
-import com.example.mypokedex.ui.utils.PokedexUiState
+import com.example.mypokedex.ui.utils.UiState
 import com.example.mypokedex.ui.viewmodels.PokedexViewModel
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 
@@ -50,10 +50,6 @@ fun PokedexScreen(
 
     val pokedexState =
         pokedexViewModel.pokedexState.collectAsStateWithLifecycle().value
-
-    LaunchedEffect(Unit) {
-        pokedexViewModel.onInputEvent(InputEvents.OnCallApi)
-    }
 
     val expandedFilter = remember { mutableStateOf(false) }
     val expandedAlpha = remember { mutableStateOf(false) }
@@ -78,8 +74,8 @@ fun PokedexScreen(
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
                 OutlinedTextField(
-                    value = pokedexViewModel.searchQuery.value,
-                    onValueChange = { pokedexViewModel.onInputEvent(InputEvents.SearchQueryInput(it)) },
+                    value = "", //pokedexViewModel.searchQuery.value,
+                    onValueChange = { },
                     placeholder = { Text("Search") },
                     leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
                     modifier = Modifier.padding(top = 10.dp)
@@ -100,8 +96,28 @@ fun PokedexScreen(
                     DropdownMenu(
                         expanded = expandedFilter.value,
                         onDismissRequest = { expandedFilter.value = false }) {
-                        DropdownMenuItem({ Text("fav") }, onClick = {})
-                        DropdownMenuItem({ Text("types") }, onClick = {})
+                        Box(modifier = Modifier.size(width = 100.dp, height = 300.dp)) {
+                            when (pokedexState) {
+                                is UiState.Success -> {
+                                    //LazyColumn {
+                                    //    items(pokedexState.data.size) {
+                                    //        val type = pokedexState.data[it]
+                                    //        DropdownMenuItem(
+                                    //            { Text(type.name) },
+                                    //            {}
+                                    //        )
+                                    //    }
+                                    //}
+
+                                }
+
+                                is UiState.Error -> {
+                                    Text(pokedexState.message)
+                                }
+
+                                UiState.Loading -> {}
+                            }
+                        }
                     }
                 }
 
@@ -122,24 +138,23 @@ fun PokedexScreen(
                         onDismissRequest = { expandedAlpha.value = false }) {
                         DropdownMenuItem(
                             { Text("A - Z") },
-                            onClick = { pokedexViewModel.onInputEvent(InputEvents.OnAToZSort) })
+                            onClick = { })
                         DropdownMenuItem(
                             { Text("Z - A") },
-                            onClick = { pokedexViewModel.onInputEvent(InputEvents.OnZToASort) })
+                            onClick = { })
                     }
                 }
             }
 
             when (pokedexState) {
-
-                is PokedexUiState.Success -> {
+                is UiState.Success -> {
                     PokemonList(
                         pokedexState.data,
                         navController
                     )
                 }
 
-                PokedexUiState.Loading -> {
+                UiState.Loading -> {
                     LoadingImage(
                         rememberDrawablePainter(
                             drawable = getDrawable(
@@ -150,7 +165,7 @@ fun PokedexScreen(
                     )
                 }
 
-                is PokedexUiState.Error -> {
+                is UiState.Error -> {
                     PokemonErrorScreen(pokedexState.message)
                 }
             }

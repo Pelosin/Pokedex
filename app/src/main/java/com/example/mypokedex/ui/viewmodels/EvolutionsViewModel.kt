@@ -2,10 +2,9 @@ package com.example.mypokedex.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mypokedex.data.utils.FunctionResponse
 import com.example.mypokedex.di.IoDispatcher
 import com.example.mypokedex.domain.model.Evolution
-import com.example.mypokedex.domain.repository.IEvolutionsRepository
+import com.example.mypokedex.domain.repository.IPokemonRepository
 import com.example.mypokedex.ui.utils.InputEvents
 import com.example.mypokedex.ui.utils.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class EvolutionsViewModel @Inject constructor(
-    private val evolutionRepository: IEvolutionsRepository,
+    private val pokemonRepository: IPokemonRepository,
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
@@ -29,15 +28,15 @@ class EvolutionsViewModel @Inject constructor(
         when (inputEvents) {
             is InputEvents.OnGetEvolutions -> {
                 viewModelScope.launch(ioDispatcher) {
-                    when (val state = evolutionRepository.getEvolutionChain(inputEvents.name)) {
-                        is FunctionResponse.Success -> {
-                            _viewState.value = UiState.Success(state.data)
-                        }
-
-                        is FunctionResponse.Error -> {
-                            _viewState.value = UiState.Error("Lista vazia")
-                        }
-                    }
+//                    when (val state = pokemonRepository.getEvolutionChain(inputEvents.name)) {
+//                        is FunctionResponse.Success -> {
+//                            _viewState.value = UiState.Success(state.data)
+//                        }
+//
+//                        is FunctionResponse.Error -> {
+//                            _viewState.value = UiState.Error("Lista vazia")
+//                        }
+//                    }
 
                 }
             }

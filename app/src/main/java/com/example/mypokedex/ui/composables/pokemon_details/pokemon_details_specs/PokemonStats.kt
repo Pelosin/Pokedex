@@ -19,7 +19,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.mypokedex.domain.model.StatType
 import com.example.mypokedex.domain.model.Stats
 
 @Composable
@@ -39,7 +38,7 @@ fun PokemonStats(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 LinearProgressIndicator(
-                    progress = { stat.baseStat / 100f },
+                    progress = { stat.baseStat.toFloat() / 255f },
                     modifier = Modifier
                         .align(Alignment.CenterVertically)
                         .fillMaxWidth(0.5f)
@@ -54,7 +53,7 @@ fun PokemonStats(
                 Spacer(modifier = Modifier.width(5.dp))
 
                 Text(
-                    text = stat.statType.name, fontSize = 10.sp,
+                    text = stat.statName, fontSize = 10.sp,
                     textAlign = TextAlign.End,
                     modifier = Modifier.align(Alignment.CenterVertically)
                 )
@@ -67,11 +66,5 @@ fun PokemonStats(
 @Preview(showBackground = true)
 @Composable
 fun PokemonStatsPreview() {
-    PokemonStats(
-        listOf(
-            Stats(60, StatType("hp")),
-            Stats(60, StatType("hp")),
-            Stats(60, StatType("hp")),
-        )
-    )
+
 }

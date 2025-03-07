@@ -6,8 +6,7 @@ import com.example.mypokedex.data.remote.model.PokemonResponse
 import com.example.mypokedex.data.remote.model.SpeciesResponse
 import com.example.mypokedex.data.remote.source.PokemonDataSource
 import com.example.mypokedex.data.utils.FunctionResponse
-import com.example.mypokedex.domain.model.Pokemon
-import com.example.mypokedex.domain.model.PokemonDetails
+import com.example.mypokedex.data.remote.model.PokemonDetails
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -141,10 +140,10 @@ class PokemonDataSourceTest {
     }
 
     @MockK
-    lateinit var expectedPokedexFunctionResponse: FunctionResponse<List<Pokemon>>
+    lateinit var expectedPokedexFunctionResponse: FunctionResponse<List<PokemonListItem>>
 
     @MockK
-    lateinit var expectedPokedex: List<Pokemon>
+    lateinit var expectedPokedex: List<PokemonListItem>
 
     @MockK
     lateinit var expectedPokemonResponse: PokemonResponse

@@ -13,8 +13,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -24,20 +22,23 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.mypokedex.R
+import com.example.mypokedex.domain.model.Pokemon
+import com.example.mypokedex.ui.utils.InputEvents
+import com.example.mypokedex.ui.viewmodels.PokemonDetailsViewModel
 
 @ExperimentalMaterial3Api
 @Composable
 fun PokemonDetailsTopbar(
     modifier: Modifier = Modifier,
     navController: NavController,
-    title: String,
+    pokemon: Pokemon,
     color: Color
 ) {
 
-    val isFav = remember { mutableStateOf(false) }
+    val pokemonDetailsViewModel: PokemonDetailsViewModel = hiltViewModel()
 
     TopAppBar(
         modifier = modifier.background(color),
@@ -46,7 +47,7 @@ fun PokemonDetailsTopbar(
         ),
         title = {
             Text(
-                title,
+                pokemon.name.replaceFirstChar { it.uppercase() },
                 modifier = Modifier.padding(bottom = 4.dp),
                 fontFamily = FontFamily(Font(R.font.pokefont)),
                 color = Color.White,
@@ -55,8 +56,10 @@ fun PokemonDetailsTopbar(
 
         },
         actions = {
-            IconButton(onClick = { isFav.value = !isFav.value }) {
-                if (isFav.value) {
+            IconButton(onClick = {
+                pokemonDetailsViewModel.onInputEvent(InputEvents.OnFavClick(pokemon.name))
+            }) {
+                if (pokemon.favorite) {
                     Icon(
                         imageVector = Icons.Filled.Star,
                         contentDescription = null,
@@ -94,5 +97,5 @@ fun PokemonDetailsTopbar(
 @Preview(showBackground = true)
 @Composable
 fun DetailsTopbarPreview() {
-    PokemonDetailsTopbar(Modifier, rememberNavController(), "Bulbasaur", Color(0xFF78C850))
+    // PokemonDetailsTopbar(Modifier, rememberNavController(), "Bulbasaur", false,Color(0xFF78C850))
 }

@@ -23,11 +23,9 @@ fun PokemonDetailScreen(
         pokemonDetailsViewModel.onInputEvent(InputEvents.OnDetailsApiCall(name))
     }
 
-    when (val myState = pokemonDetailsViewModel.viewState.collectAsStateWithLifecycle().value) {
+    when (val myState = pokemonDetailsViewModel.detailsState.collectAsStateWithLifecycle().value) {
         is UiState.Success -> {
-            myState.data?.let {
-                PokemonDetails(myState.data, navController)
-            }
+            PokemonDetails(myState.data, navController)
         }
 
         is UiState.Error -> {

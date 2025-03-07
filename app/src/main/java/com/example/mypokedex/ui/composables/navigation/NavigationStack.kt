@@ -1,6 +1,5 @@
 package com.example.mypokedex.ui.composables.navigation
 
-import android.util.Log
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -27,7 +26,6 @@ fun NavigationStack(
 
     LaunchedEffect(navController) {
         navigationViewModel.checkForRoute()
-        Log.d("MyStartRoute", startDestination)
     }
 
     NavHost(navController, startDestination) {

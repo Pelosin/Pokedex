@@ -27,12 +27,16 @@ import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import coil3.request.crossfade
 import com.example.mypokedex.R
+import com.example.mypokedex.domain.model.Pokemon
 import com.example.mypokedex.ui.composables.loading_image.LoadingImage
-import com.example.mypokedex.utils.retrieveImageUrl
+import com.example.mypokedex.utils.getTypeColor
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 
 @Composable
-fun PokedexCardList(fakeId: String) {
+fun PokedexCardList(
+    sprite: String?,
+    pokemon: Pokemon
+) {
 
     val infiniteTransition = rememberInfiniteTransition()
     val scale by infiniteTransition.animateFloat(
@@ -57,7 +61,10 @@ fun PokedexCardList(fakeId: String) {
                 shape = RoundedCornerShape(10.dp)
             ),
         shape = RoundedCornerShape(10.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 10.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = pokemon.types.first().name.getTypeColor()
+        )
 
     ) {
 
@@ -65,7 +72,7 @@ fun PokedexCardList(fakeId: String) {
 
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data(fakeId.retrieveImageUrl())
+                .data(sprite)
                 .crossfade(true)
                 .build(),
             onSuccess = { imageState.value = false },

@@ -1,9 +1,8 @@
 package com.example.mypokedex
 
-import com.example.mypokedex.data.remote.repository.PokemonRepository
+import com.example.mypokedex.data.repository.PokemonRepository
 import com.example.mypokedex.data.remote.source.PokemonDataSource
 import com.example.mypokedex.data.utils.FunctionResponse
-import com.example.mypokedex.domain.model.Pokemon
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -22,7 +21,7 @@ class PokemonRepositoryTest {
     lateinit var pokemonDataSourceMock: PokemonDataSource
 
     @MockK
-    lateinit var functionResponse: FunctionResponse<List<Pokemon>>
+    lateinit var functionResponse: FunctionResponse<List<PokemonListItem>>
 
     @InjectMockKs
     lateinit var victim: PokemonRepository
@@ -38,18 +37,18 @@ class PokemonRepositoryTest {
 
     @Test
     fun validateGetAllPokemon() = runTest {
-        val listOfPokemons = listOf(Pokemon("Buba", "a"))
+        val listOfPokemonListItems = listOf(PokemonListItem("Buba", "a"))
 
-        every { functionResponse.data } returns listOfPokemons
+        every { functionResponse.data } returns listOfPokemonListItems
         coEvery { pokemonDataSourceMock.getAllPokemon() } returns functionResponse
-        val response = victim.getAllPokemon()
+        val response = victim.fetchPokemonList()
 
         coVerify(exactly = 1) {
-            victim.getAllPokemon()
+            victim.fetchPokemonList()
             pokemonDataSourceMock.getAllPokemon()
         }
 
-        assertEquals(response.data, listOfPokemons)
+        assertEquals(response.data, listOfPokemonListItems)
     }
 
     @Test
@@ -58,10 +57,10 @@ class PokemonRepositoryTest {
 
         every { functionResponse.message } returns errorMessage
         coEvery { pokemonDataSourceMock.getAllPokemon() } returns functionResponse
-        val response = victim.getAllPokemon()
+        val response = victim.fetchPokemonList()
 
         coVerify(exactly = 1) {
-            victim.getAllPokemon()
+            victim.fetchPokemonList()
             pokemonDataSourceMock.getAllPokemon()
         }
 

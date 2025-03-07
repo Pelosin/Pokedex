@@ -23,15 +23,11 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import coil3.request.crossfade
 import com.example.mypokedex.R
-import com.example.mypokedex.domain.model.OtherSprites
-import com.example.mypokedex.domain.model.PokemonDetails
-import com.example.mypokedex.domain.model.ShowdownSprites
-import com.example.mypokedex.domain.model.Sprites
+import com.example.mypokedex.domain.model.Pokemon
 import com.example.mypokedex.ui.composables.loading_image.LoadingImage
 import com.example.mypokedex.ui.composables.navigation.Screen
 import com.example.mypokedex.ui.screens.PokemonErrorScreen
@@ -42,7 +38,7 @@ import com.google.accompanist.drawablepainter.rememberDrawablePainter
 
 @Composable
 fun PokemonEvolutions(
-    pokemonDetails: PokemonDetails,
+    pokemonDetails: Pokemon,
     navController: NavController
 ) {
 
@@ -118,16 +114,16 @@ fun PokemonEvolutions(
 @Preview
 @Composable
 fun PreviewPokemonEvolution() {
-    PokemonEvolutions(
-        PokemonDetails(
-            "Buba",
-            1,
-            emptyList(),
-            1,
-            2,
-            Sprites(OtherSprites(ShowdownSprites("a")), null, "a"),
-            emptyList()
-        ),
-        rememberNavController()
-    )
+//    PokemonEvolutions(
+//        PokemonDetails(
+//            "Buba",
+//            1,
+//            emptyList(),
+//            1,
+//            2,
+//            Sprites(OtherSprites(ShowdownSprites("a")), null, "a"),
+//            emptyList()
+//        ),
+//        rememberNavController()
+//    )
 }
