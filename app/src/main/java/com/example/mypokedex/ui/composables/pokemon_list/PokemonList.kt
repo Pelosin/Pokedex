@@ -28,7 +28,7 @@ fun PokemonList(
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
             horizontalArrangement = Arrangement.spacedBy(10.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp)
+            verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
             items(pokemonList.size, key = { pokemonList[it].name }) {
                 val pokemon = pokemonList[it]

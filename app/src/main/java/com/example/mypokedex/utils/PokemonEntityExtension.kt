@@ -3,6 +3,7 @@ package com.example.mypokedex.utils
 import com.example.mypokedex.data.local.database.model.PokemonEntity
 import com.example.mypokedex.domain.model.Pokemon
 import com.example.mypokedex.domain.model.Type
+import com.example.mypokedex.ui.viewmodels.FilterType
 
 fun PokemonEntity.toPokemon() = Pokemon(
     name = this.name,
@@ -28,3 +29,23 @@ fun PokemonEntity.displayParameters(): String =
             Favorite: $favorite
             Is Loaded: $isLoaded
         """.trimIndent()
+
+fun List<PokemonEntity>.filterByName(searchQuery: String) : List<PokemonEntity>{
+    if(searchQuery.isEmpty())
+        return this
+
+    return this.filter { it.name.contains(searchQuery) }
+}
+
+fun List<PokemonEntity>.filterByFilterType(filterType: FilterType) : List<PokemonEntity>{
+    when(filterType) {
+        FilterType.Empty -> {
+            return this
+        }
+        FilterType.Favorites -> {
+            return this.filter { it.favorite }
+        }
+    }
+}
+
+

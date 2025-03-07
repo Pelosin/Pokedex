@@ -1,6 +1,7 @@
 package com.example.mypokedex.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.mypokedex.data.repository.PokemonRepository
 import com.example.mypokedex.di.IoDispatcher
 import com.example.mypokedex.ui.utils.InputEvents
@@ -9,6 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -23,7 +25,9 @@ class TopBarDetailsViewModel @Inject constructor(
     fun onInputEvent(inputEvents: InputEvents) {
         when (inputEvents) {
             is InputEvents.OnFavClick -> {
-                pokemonRepository.favoritePokemon(inputEvents.name)
+                viewModelScope.launch(ioDispatcher) {
+                    pokemonRepository.favoritePokemon(inputEvents.name)
+                }
             }
 
             else -> {}

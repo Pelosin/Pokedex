@@ -36,6 +36,7 @@ import com.example.mypokedex.R
 import com.example.mypokedex.ui.composables.loading_image.LoadingImage
 import com.example.mypokedex.ui.composables.pokedex_topbar.PokedexTopbar
 import com.example.mypokedex.ui.composables.pokemon_list.PokemonList
+import com.example.mypokedex.ui.utils.InputEvents
 import com.example.mypokedex.ui.utils.UiState
 import com.example.mypokedex.ui.viewmodels.PokedexViewModel
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
@@ -50,6 +51,9 @@ fun PokedexScreen(
 
     val pokedexState =
         pokedexViewModel.pokedexState.collectAsStateWithLifecycle().value
+
+    val searchQuery =
+        pokedexViewModel.searchQuery.collectAsStateWithLifecycle().value
 
     val expandedFilter = remember { mutableStateOf(false) }
     val expandedAlpha = remember { mutableStateOf(false) }
@@ -74,8 +78,8 @@ fun PokedexScreen(
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
                 OutlinedTextField(
-                    value = "", //pokedexViewModel.searchQuery.value,
-                    onValueChange = { },
+                    value = searchQuery,
+                    onValueChange = { pokedexViewModel.onInputEvent(InputEvents.SearchQueryInput(it))},
                     placeholder = { Text("Search") },
                     leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
                     modifier = Modifier.padding(top = 10.dp)
@@ -97,6 +101,10 @@ fun PokedexScreen(
                         expanded = expandedFilter.value,
                         onDismissRequest = { expandedFilter.value = false }) {
                         Box(modifier = Modifier.size(width = 100.dp, height = 300.dp)) {
+                            DropdownMenuItem(
+                                { Text("fav") },
+                                { pokedexViewModel.onInputEvent(InputEvents.OnFavFilter)}
+                            )
                             when (pokedexState) {
                                 is UiState.Success -> {
                                     //LazyColumn {

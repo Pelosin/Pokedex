@@ -1,5 +1,6 @@
 package com.example.mypokedex.ui.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mypokedex.di.IoDispatcher
@@ -7,6 +8,7 @@ import com.example.mypokedex.domain.model.Pokemon
 import com.example.mypokedex.domain.repository.IPokemonRepository
 import com.example.mypokedex.ui.utils.InputEvents
 import com.example.mypokedex.ui.utils.UiState
+import com.example.mypokedex.utils.LogTags
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,6 +31,7 @@ class PokemonDetailsViewModel @Inject constructor(
             is InputEvents.OnDetailsApiCall -> {
                 viewModelScope.launch(ioDispatcher) {
                     val response = pokemonRepository.getPokemonByName(inputEvents.name)
+                    Log.d(LogTags.POKEMON_DTVM, response.toString())
                     response.collectLatest {
                         _detailsState.value = UiState.Success(it)
                     }
@@ -36,7 +39,9 @@ class PokemonDetailsViewModel @Inject constructor(
             }
 
             is InputEvents.OnFavClick -> {
-                pokemonRepository.favoritePokemon(inputEvents.name)
+                viewModelScope.launch(ioDispatcher) {
+                    pokemonRepository.favoritePokemon(inputEvents.name)
+                }
             }
 
             else -> {}

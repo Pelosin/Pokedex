@@ -9,7 +9,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface PokeApi {
-    @GET("pokemon/?limit=100")
+    @GET("pokemon/?limit=300")
     suspend fun getAllPokemon(): PokemonResponse
 
     @GET("pokemon/{name}")

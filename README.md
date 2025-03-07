@@ -1,7 +1,7 @@
 # Critical Pokedex
 
 ## README
-- Dark Mode Support
+- ~~Dark Mode Support~~
 - Support Multiple Languages
 - ~~Splash screen displayed every time the app is launched~~
 - ~~Welcome Screen displayed only the first time that app is opened~~

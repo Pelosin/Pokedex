@@ -64,7 +64,7 @@ fun PokemonEvolutions(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Center
                 ) {
-                    items(myState.data!!.size) {
+                    items(myState.data.size) {
                         val evolution = myState.data[it]
 
                         Card(

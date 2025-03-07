@@ -11,7 +11,10 @@ import com.example.mypokedex.ui.utils.InputEvents
 import com.example.mypokedex.ui.utils.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -24,47 +27,38 @@ class PokedexViewModel @Inject constructor(
     private val notificationsManager: NotificationsManager
 ) : ViewModel() {
 
+    val searchQuery = MutableStateFlow("")
+
+    val filterType = MutableStateFlow<FilterType>(FilterType.Empty)
+
+    @OptIn(ExperimentalCoroutinesApi::class)
     val pokedexState =
-        pokemonRepository.getAllPokemons().map { UiState.Success(it) }
+        searchQuery.flatMapLatest {
+            filterType
+        }.flatMapLatest {
+            pokemonRepository.getAllPokemons(searchQuery.value, filterType.value)
+        }.map { UiState.Success(it) }
             .stateIn(viewModelScope, SharingStarted.Lazily, UiState.Loading)
 
-    private var pokedexList: List<Pokemon> = mutableListOf()
-
-    val searchQuery = mutableStateOf("")
 
     fun onInputEvent(inputEvents: InputEvents) {
         when (inputEvents) {
-            InputEvents.OnCallApi -> {}
-
             is InputEvents.SearchQueryInput -> {
-                viewModelScope.launch(defaultDispatcher) {
-                    searchQuery.value = inputEvents.query
-                }
+                searchQuery.value = inputEvents.query
             }
 
-            InputEvents.OnAToZSort -> {
-                viewModelScope.launch(defaultDispatcher) {
-                    try {
-
-                    } catch (e: ClassCastException) {
-
-                    }
-                }
+            is InputEvents.OnFavFilter -> {
+                filterType.value = FilterType.Favorites
             }
-
-            InputEvents.OnZToASort -> {
-                try {
-
-                } catch (e: ClassCastException) {
-
-                }
-            }
-
-            InputEvents.OnFavFilter -> {}
 
             else -> {}
         }
     }
 
 
+}
+
+sealed class FilterType {
+    data object Empty : FilterType()
+    data object Favorites : FilterType()
 }
