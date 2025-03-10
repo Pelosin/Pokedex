@@ -8,7 +8,7 @@ sealed class InputEvents {
     data object OnAToZSort : InputEvents()
     data object OnZToASort : InputEvents()
     data class OnTypeFilter(val type: String) : InputEvents()
-    data object OnFavFilter : InputEvents()
+    data class OnFavFilter(val isFiltered : Boolean) : InputEvents()
     data class OnFavClick(val name: String) : InputEvents()
 
 }

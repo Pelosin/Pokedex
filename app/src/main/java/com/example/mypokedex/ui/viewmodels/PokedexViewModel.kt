@@ -29,7 +29,7 @@ class PokedexViewModel @Inject constructor(
 
     val searchQuery = MutableStateFlow("")
 
-    val filterType = MutableStateFlow<FilterType>(FilterType.Empty)
+    private val filterType = MutableStateFlow<FilterType>(FilterType.Empty)
 
     @OptIn(ExperimentalCoroutinesApi::class)
     val pokedexState =
@@ -48,7 +48,11 @@ class PokedexViewModel @Inject constructor(
             }
 
             is InputEvents.OnFavFilter -> {
-                filterType.value = FilterType.Favorites
+                if(inputEvents.isFiltered){
+                    filterType.value = FilterType.Favorites
+                } else {
+                    filterType.value = FilterType.Empty
+                }
             }
 
             else -> {}

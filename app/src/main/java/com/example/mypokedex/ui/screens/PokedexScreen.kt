@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -25,6 +26,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -60,6 +62,8 @@ fun PokedexScreen(
 
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
 
+    val isFavoriteFilter = remember { mutableStateOf(false) }
+
     Scaffold(
         topBar = { PokedexTopbar(Modifier, scrollBehavior) },
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
@@ -79,7 +83,7 @@ fun PokedexScreen(
             ) {
                 OutlinedTextField(
                     value = searchQuery,
-                    onValueChange = { pokedexViewModel.onInputEvent(InputEvents.SearchQueryInput(it))},
+                    onValueChange = { pokedexViewModel.onInputEvent(InputEvents.SearchQueryInput(it)) },
                     placeholder = { Text("Search") },
                     leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
                     modifier = Modifier.padding(top = 10.dp)
@@ -101,10 +105,6 @@ fun PokedexScreen(
                         expanded = expandedFilter.value,
                         onDismissRequest = { expandedFilter.value = false }) {
                         Box(modifier = Modifier.size(width = 100.dp, height = 300.dp)) {
-                            DropdownMenuItem(
-                                { Text("fav") },
-                                { pokedexViewModel.onInputEvent(InputEvents.OnFavFilter)}
-                            )
                             when (pokedexState) {
                                 is UiState.Success -> {
                                     //LazyColumn {
@@ -151,6 +151,30 @@ fun PokedexScreen(
                             { Text("Z - A") },
                             onClick = { })
                     }
+                }
+
+                IconButton(
+                    onClick = {
+                        isFavoriteFilter.value = !isFavoriteFilter.value
+                        pokedexViewModel.onInputEvent(InputEvents.OnFavFilter(isFavoriteFilter.value))
+                    },
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .padding(top = 10.dp)
+                ) {
+                    if (isFavoriteFilter.value) {
+                        Icon(
+                            imageVector = Icons.Filled.Star,
+                            contentDescription = null,
+                        )
+                    } else {
+                        Icon(
+                            painter = painterResource(R.drawable.baseline_star_outline_24),
+                            tint = Color.Black,
+                            contentDescription = null,
+                        )
+                    }
+
                 }
             }
 
