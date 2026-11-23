@@ -22,6 +22,9 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
       # NOTE: testDebugUnitTest is not wired in yet — the existing unit tests
       # do not compile against the current data-source API (pre-existing drift).
       # Wire it back in when the tests are fixed.
