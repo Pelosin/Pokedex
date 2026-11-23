@@ -1,7 +1,13 @@
 package com.example.mypokedex.ui.composables.pokedex_topbar
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -12,12 +18,16 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.mypokedex.R
+import com.example.mypokedex.ui.theme.PokedexRed
+
+private val LensBlue = Color(0xFF3B4CCA)
+private val LightRed = Color(0xFFFF7F7F)
+private val LightYellow = Color(0xFFFFDE00)
+private val LightGreen = Color(0xFF71D44C)
 
 @ExperimentalMaterial3Api
 @Composable
@@ -28,15 +38,39 @@ fun PokedexTopbar(
     TopAppBar(
         modifier = modifier,
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(0.6f)
+            containerColor = PokedexRed,
+            titleContentColor = Color.White,
+            navigationIconContentColor = Color.White
         ),
         title = {
-            Text(
-                "Pokedex",
-                fontFamily = FontFamily(Font(R.font.pokefont)),
-                modifier = Modifier.padding(bottom = 4.dp)
-            )
-
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                // The device lens
+                Box(
+                    modifier = Modifier
+                        .size(22.dp)
+                        .background(Color.White, CircleShape)
+                        .padding(4.dp)
+                        .background(LensBlue, CircleShape)
+                )
+                Column(verticalArrangement = Arrangement.spacedBy(3.dp)) {
+                    Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                        Box(Modifier.size(5.dp).background(LightRed, CircleShape))
+                        Box(Modifier.size(5.dp).background(LightYellow, CircleShape))
+                    }
+                    Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                        Box(Modifier.size(5.dp).background(LightGreen, CircleShape))
+                    }
+                }
+                Text(
+                    "POKEDEX",
+                    style = MaterialTheme.typography.titleLarge,
+                    color = Color.White,
+                    modifier = Modifier.padding(start = 2.dp, bottom = 2.dp)
+                )
+            }
         },
         navigationIcon = {
             Icon(
@@ -49,11 +83,4 @@ fun PokedexTopbar(
         },
         scrollBehavior = scrollBehavior
     )
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Preview(showBackground = true)
-@Composable
-fun PokedexTopbarPreview() {
-    //PokedexTopbar(Modifier)
 }
