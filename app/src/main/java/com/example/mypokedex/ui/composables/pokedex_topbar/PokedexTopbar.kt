@@ -22,7 +22,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.example.mypokedex.ui.theme.PokedexRed
+import com.example.mypokedex.ui.theme.LcdDark
+import com.example.mypokedex.ui.theme.LcdGreen
+import com.example.mypokedex.ui.theme.LcdPale
 
 private val LensBlue = Color(0xFF3B4CCA)
 private val LightRed = Color(0xFFFF7F7F)
@@ -38,9 +40,9 @@ fun PokedexTopbar(
     TopAppBar(
         modifier = modifier,
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = PokedexRed,
-            titleContentColor = Color.White,
-            navigationIconContentColor = Color.White
+            containerColor = LcdDark,
+            titleContentColor = LcdGreen,
+            navigationIconContentColor = LcdPale
         ),
         title = {
             Row(

@@ -21,6 +21,7 @@ import com.example.mypokedex.domain.model.Stats
 import com.example.mypokedex.ui.theme.LcdGreen
 import com.example.mypokedex.ui.theme.LcdOff
 import com.example.mypokedex.ui.theme.RetroInk
+import com.example.mypokedex.ui.theme.VintageWhite
 
 @Composable
 fun PokemonStats(
@@ -81,7 +82,7 @@ private fun SegmentedBar(fraction: Float) {
         modifier = Modifier
             .fillMaxWidth()
             .border(2.dp, RetroInk, RoundedCornerShape(2.dp))
-            .background(color = androidx.compose.ui.graphics.Color.White)
+            .background(color = VintageWhite)
             .padding(3.dp),
         horizontalArrangement = Arrangement.spacedBy(3.dp)
     ) {

@@ -17,6 +17,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
@@ -40,6 +41,9 @@ import com.example.mypokedex.ui.composables.pokedex_topbar.PokedexTopbar
 import com.example.mypokedex.ui.composables.pokemon_list.PokemonList
 import com.example.mypokedex.ui.utils.InputEvents
 import com.example.mypokedex.ui.utils.UiState
+import com.example.mypokedex.ui.theme.LcdGreen
+import com.example.mypokedex.ui.theme.RetroInk
+import com.example.mypokedex.ui.theme.VintageWhite
 import com.example.mypokedex.ui.viewmodels.PokedexViewModel
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 
@@ -86,6 +90,12 @@ fun PokedexScreen(
                     onValueChange = { pokedexViewModel.onInputEvent(InputEvents.SearchQueryInput(it)) },
                     placeholder = { Text("Search") },
                     leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
+                    colors = OutlinedTextFieldDefaults.colors(
+                        unfocusedContainerColor = VintageWhite,
+                        focusedContainerColor = VintageWhite,
+                        unfocusedBorderColor = RetroInk,
+                        focusedBorderColor = LcdGreen
+                    ),
                     modifier = Modifier.padding(top = 10.dp)
                 )
 

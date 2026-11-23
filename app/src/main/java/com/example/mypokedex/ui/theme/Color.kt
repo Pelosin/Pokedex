@@ -30,3 +30,6 @@ val LcdGreen = Color(0xFF9BBC0F)
 val LcdPale = Color(0xFFCADC9F)
 val LcdDark = Color(0xFF0F380F)
 val LcdOff = Color(0xFFE4E8D0)
+
+// Vintage paper: replaces pure white surfaces
+val VintageWhite = Color(0xFFF4EFE3)

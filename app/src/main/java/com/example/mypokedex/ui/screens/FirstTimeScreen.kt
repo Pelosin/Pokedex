@@ -40,6 +40,7 @@ import com.example.mypokedex.ui.theme.LcdDark
 import com.example.mypokedex.ui.theme.LcdGreen
 import com.example.mypokedex.ui.theme.LcdPale
 import com.example.mypokedex.ui.theme.RetroInk
+import com.example.mypokedex.ui.theme.VintageWhite
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 
 private val LensBlue = Color(0xFF3B4CCA)
@@ -75,39 +76,38 @@ fun FirstTimeScreen(
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Device lens, same face as the topbar
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(10.dp)
-            ) {
-                Box(
-                    modifier = Modifier
-                        .size(26.dp)
-                        .background(Color.White, CircleShape)
-                        .padding(5.dp)
-                        .background(LensBlue, CircleShape)
-                )
-                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Box(Modifier.size(6.dp).background(LightRed, CircleShape))
-                    Box(Modifier.size(6.dp).background(LightYellow, CircleShape))
-                    Box(Modifier.size(6.dp).background(LightGreen, CircleShape))
-                }
-            }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
             // The LCD boot screen
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .border(4.dp, RetroInk, RoundedCornerShape(10.dp))
                     .background(LcdDark, RoundedCornerShape(10.dp))
-                    .padding(horizontal = 20.dp, vertical = 28.dp)
+                    .padding(horizontal = 20.dp, vertical = 24.dp)
             ) {
                 Column(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
+                    // Device lens, on the LCD face
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(10.dp),
+                        modifier = Modifier.padding(bottom = 18.dp)
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .size(26.dp)
+                                .background(VintageWhite, CircleShape)
+                                .padding(5.dp)
+                                .background(LensBlue, CircleShape)
+                        )
+                        Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                            Box(Modifier.size(6.dp).background(LightRed, CircleShape))
+                            Box(Modifier.size(6.dp).background(LightYellow, CircleShape))
+                            Box(Modifier.size(6.dp).background(LightGreen, CircleShape))
+                        }
+                    }
+
                     Text(
                         "POKEDEX",
                         style = MaterialTheme.typography.headlineMedium,
