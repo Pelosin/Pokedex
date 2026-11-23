@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>FinalNewline:IIsFirstOpenRepository.kt$com.example.mypokedex.domain.repository.IIsFirstOpenRepository.kt</ID>
+    <ID>FinalNewline:IPokemonRepository.kt$com.example.mypokedex.domain.repository.IPokemonRepository.kt</ID>
+    <ID>FinalNewline:LogTags.kt$com.example.mypokedex.utils.LogTags.kt</ID>
+    <ID>ImportOrdering:IPokemonRepository.kt$import com.example.mypokedex.domain.model.Evolution import com.example.mypokedex.domain.model.Pokemon import com.example.mypokedex.domain.model.FilterType import kotlinx.coroutines.flow.Flow</ID>
+    <ID>NewLineAtEndOfFile:IIsFirstOpenRepository.kt$com.example.mypokedex.domain.repository.IIsFirstOpenRepository.kt</ID>
+    <ID>NewLineAtEndOfFile:IPokemonRepository.kt$com.example.mypokedex.domain.repository.IPokemonRepository.kt</ID>
+    <ID>NewLineAtEndOfFile:LogTags.kt$com.example.mypokedex.utils.LogTags.kt</ID>
+    <ID>SpacingAroundColon:IPokemonRepository.kt$IPokemonRepository$:</ID>
+  </CurrentIssues>
+</SmellBaseline>

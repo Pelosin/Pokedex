@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>ArgumentListWrapping:IsFirstOpenRepository.kt$IsFirstOpenRepository$( Constants.SharedKeys.IS_FIRST_OPEN, true )</ID>
+    <ID>CommentSpacing:PokemonEntity.kt$PokemonEntity$//val evolutions: List&lt;Evolution&gt; = emptyList(),</ID>
+    <ID>CommentSpacing:PokemonRepository.kt$PokemonRepository$//override fun getAllTypes(): List&lt;Type&gt; =</ID>
+    <ID>EmptyClassBlock:TypeDao.kt$TypeDao${ }</ID>
+    <ID>FinalNewline:AppModule.kt$com.example.mypokedex.di.AppModule.kt</ID>
+    <ID>FinalNewline:Constants.kt$com.example.mypokedex.data.utils.Constants.kt</ID>
+    <ID>FinalNewline:DatabaseModule.kt$com.example.mypokedex.di.DatabaseModule.kt</ID>
+    <ID>FinalNewline:DatasourceModule.kt$com.example.mypokedex.di.DatasourceModule.kt</ID>
+    <ID>FinalNewline:EntityConverter.kt$com.example.mypokedex.data.local.database.converter.EntityConverter.kt</ID>
+    <ID>FinalNewline:EvolutionChainExtensions.kt$com.example.mypokedex.utils.EvolutionChainExtensions.kt</ID>
+    <ID>FinalNewline:EvolutionModelResponse.kt$.EvolutionModelResponse.kt</ID>
+    <ID>FinalNewline:FirstOpenModule.kt$com.example.mypokedex.di.FirstOpenModule.kt</ID>
+    <ID>FinalNewline:IPokemonDataSource.kt$com.example.mypokedex.data.remote.source.IPokemonDataSource.kt</ID>
+    <ID>FinalNewline:IPokemonDatabaseSource.kt$com.example.mypokedex.data.local.database.source.IPokemonDatabaseSource.kt</ID>
+    <ID>FinalNewline:IsFirstOpenRepository.kt$com.example.mypokedex.data.local.memory.repository.IsFirstOpenRepository.kt</ID>
+    <ID>FinalNewline:PokeApi.kt$com.example.mypokedex.data.remote.api.PokeApi.kt</ID>
+    <ID>FinalNewline:PokeApiModule.kt$com.example.mypokedex.di.PokeApiModule.kt</ID>
+    <ID>FinalNewline:PokedexDatabase.kt$com.example.mypokedex.data.local.database.core.PokedexDatabase.kt</ID>
+    <ID>FinalNewline:PokemonDao.kt$com.example.mypokedex.data.local.database.dao.PokemonDao.kt</ID>
+    <ID>FinalNewline:PokemonDataSource.kt$com.example.mypokedex.data.remote.source.PokemonDataSource.kt</ID>
+    <ID>FinalNewline:PokemonDatabaseSource.kt$com.example.mypokedex.data.local.database.source.PokemonDatabaseSource.kt</ID>
+    <ID>FinalNewline:PokemonDetailsExtension.kt$com.example.mypokedex.utils.PokemonDetailsExtension.kt</ID>
+    <ID>FinalNewline:PokemonRepository.kt$com.example.mypokedex.data.repository.PokemonRepository.kt</ID>
+    <ID>FinalNewline:SharedPreferencesHelper.kt$com.example.mypokedex.data.utils.SharedPreferencesHelper.kt</ID>
+    <ID>FinalNewline:SpeciesResponse.kt$com.example.mypokedex.data.remote.model.SpeciesResponse.kt</ID>
+    <ID>FinalNewline:StatsResponseExtension.kt$com.example.mypokedex.utils.StatsResponseExtension.kt</ID>
+    <ID>FinalNewline:TypeDao.kt$com.example.mypokedex.data.local.database.dao.TypeDao.kt</ID>
+    <ID>FinalNewline:TypeResponseExtensions.kt$com.example.mypokedex.utils.TypeResponseExtensions.kt</ID>
+    <ID>FunctionReturnTypeSpacing:PokemonEntityExtension.kt$fun List&lt;PokemonEntity&gt;.filterByFilterType(filterType: FilterType) : List&lt;PokemonEntity&gt;</ID>
+    <ID>FunctionReturnTypeSpacing:PokemonEntityExtension.kt$fun List&lt;PokemonEntity&gt;.filterByName(searchQuery: String) : List&lt;PokemonEntity&gt;</ID>
+    <ID>FunctionStartOfBodySpacing:PokemonEntityExtension.kt$fun List&lt;PokemonEntity&gt;.filterByFilterType(filterType: FilterType) : List&lt;PokemonEntity&gt;</ID>
+    <ID>FunctionStartOfBodySpacing:PokemonEntityExtension.kt$fun List&lt;PokemonEntity&gt;.filterByName(searchQuery: String) : List&lt;PokemonEntity&gt;</ID>
+    <ID>ImportOrdering:PokemonEntityExtension.kt$import com.example.mypokedex.data.local.database.model.PokemonEntity import com.example.mypokedex.domain.model.Pokemon import com.example.mypokedex.domain.model.Type import com.example.mypokedex.domain.model.FilterType</ID>
+    <ID>ImportOrdering:PokemonRepository.kt$import android.util.Log import com.example.mypokedex.data.local.database.model.PokemonEntity import com.example.mypokedex.data.local.database.source.IPokemonDatabaseSource import com.example.mypokedex.data.remote.source.IPokemonDataSource import com.example.mypokedex.di.IoDispatcher import com.example.mypokedex.domain.model.Evolution import com.example.mypokedex.domain.model.Pokemon import com.example.mypokedex.domain.repository.IPokemonRepository import com.example.mypokedex.domain.model.FilterType import com.example.mypokedex.utils.LogTags import com.example.mypokedex.utils.displayParameters import com.example.mypokedex.utils.filterByFilterType import com.example.mypokedex.utils.filterByName import com.example.mypokedex.utils.toEvolutionList import com.example.mypokedex.utils.toPokemon import com.example.mypokedex.utils.toPokemonEntity import com.example.mypokedex.utils.toSpritesList import com.example.mypokedex.utils.toStats import com.example.mypokedex.utils.toType import kotlinx.coroutines.CoroutineDispatcher import kotlinx.coroutines.CoroutineExceptionHandler import kotlinx.coroutines.CoroutineScope import kotlinx.coroutines.flow.Flow import kotlinx.coroutines.flow.collectLatest import kotlinx.coroutines.flow.filter import kotlinx.coroutines.flow.filterNotNull import kotlinx.coroutines.flow.map import kotlinx.coroutines.launch import kotlinx.coroutines.sync.Mutex import kotlinx.coroutines.sync.withLock import javax.inject.Inject</ID>
+    <ID>Indentation:PokemonDao.kt$PokemonDao$ </ID>
+    <ID>Indentation:PokemonDataSource.kt$PokemonDataSource$ </ID>
+    <ID>Indentation:PokemonEntityExtension.kt$ </ID>
+    <ID>Indentation:PokemonRepository.kt$PokemonRepository$ </ID>
+    <ID>MultiLineIfElse:EntityConverter.kt$EntityConverter$return emptyList()</ID>
+    <ID>MultiLineIfElse:PokemonEntityExtension.kt$return this</ID>
+    <ID>MultiLineIfElse:PokemonRepository.kt$PokemonRepository$return emptyList()</ID>
+    <ID>NewLineAtEndOfFile:AppModule.kt$com.example.mypokedex.di.AppModule.kt</ID>
+    <ID>NewLineAtEndOfFile:Constants.kt$com.example.mypokedex.data.utils.Constants.kt</ID>
+    <ID>NewLineAtEndOfFile:DatabaseModule.kt$com.example.mypokedex.di.DatabaseModule.kt</ID>
+    <ID>NewLineAtEndOfFile:DatasourceModule.kt$com.example.mypokedex.di.DatasourceModule.kt</ID>
+    <ID>NewLineAtEndOfFile:EntityConverter.kt$com.example.mypokedex.data.local.database.converter.EntityConverter.kt</ID>
+    <ID>NewLineAtEndOfFile:EvolutionChainExtensions.kt$com.example.mypokedex.utils.EvolutionChainExtensions.kt</ID>
+    <ID>NewLineAtEndOfFile:EvolutionModelResponse.kt$.EvolutionModelResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:FirstOpenModule.kt$com.example.mypokedex.di.FirstOpenModule.kt</ID>
+    <ID>NewLineAtEndOfFile:IPokemonDataSource.kt$com.example.mypokedex.data.remote.source.IPokemonDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:IPokemonDatabaseSource.kt$com.example.mypokedex.data.local.database.source.IPokemonDatabaseSource.kt</ID>
+    <ID>NewLineAtEndOfFile:IsFirstOpenRepository.kt$com.example.mypokedex.data.local.memory.repository.IsFirstOpenRepository.kt</ID>
+    <ID>NewLineAtEndOfFile:PokeApi.kt$com.example.mypokedex.data.remote.api.PokeApi.kt</ID>
+    <ID>NewLineAtEndOfFile:PokeApiModule.kt$com.example.mypokedex.di.PokeApiModule.kt</ID>
+    <ID>NewLineAtEndOfFile:PokedexDatabase.kt$com.example.mypokedex.data.local.database.core.PokedexDatabase.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonDao.kt$com.example.mypokedex.data.local.database.dao.PokemonDao.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonDataSource.kt$com.example.mypokedex.data.remote.source.PokemonDataSource.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonDatabaseSource.kt$com.example.mypokedex.data.local.database.source.PokemonDatabaseSource.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonDetailsExtension.kt$com.example.mypokedex.utils.PokemonDetailsExtension.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonRepository.kt$com.example.mypokedex.data.repository.PokemonRepository.kt</ID>
+    <ID>NewLineAtEndOfFile:SharedPreferencesHelper.kt$com.example.mypokedex.data.utils.SharedPreferencesHelper.kt</ID>
+    <ID>NewLineAtEndOfFile:SpeciesResponse.kt$com.example.mypokedex.data.remote.model.SpeciesResponse.kt</ID>
+    <ID>NewLineAtEndOfFile:StatsResponseExtension.kt$com.example.mypokedex.utils.StatsResponseExtension.kt</ID>
+    <ID>NewLineAtEndOfFile:TypeDao.kt$com.example.mypokedex.data.local.database.dao.TypeDao.kt</ID>
+    <ID>NewLineAtEndOfFile:TypeResponseExtensions.kt$com.example.mypokedex.utils.TypeResponseExtensions.kt</ID>
+    <ID>NoBlankLineBeforeRbrace:AppModule.kt$AppModule$ </ID>
+    <ID>NoBlankLineBeforeRbrace:Constants.kt$Constants.Network$ </ID>
+    <ID>NoBlankLineBeforeRbrace:DatabaseModule.kt$DatabaseModule$ </ID>
+    <ID>NoBlankLineBeforeRbrace:PokemonDatabaseSource.kt$PokemonDatabaseSource$ </ID>
+    <ID>NoBlankLineBeforeRbrace:PokemonRepository.kt$PokemonRepository$ </ID>
+    <ID>NoBlankLineBeforeRbrace:SharedPreferencesHelper.kt$SharedPreferencesHelper$ </ID>
+    <ID>NoConsecutiveBlankLines:Constants.kt$Constants.Network$ </ID>
+    <ID>NoConsecutiveBlankLines:PokemonDataSource.kt$PokemonDataSource$ </ID>
+    <ID>NoConsecutiveBlankLines:PokemonDatabaseSource.kt$PokemonDatabaseSource$ </ID>
+    <ID>NoConsecutiveBlankLines:PokemonDetailsDataModel.kt$ </ID>
+    <ID>NoConsecutiveBlankLines:PokemonEntityExtension.kt$ </ID>
+    <ID>NoConsecutiveBlankLines:PokemonRepository.kt$PokemonRepository$ </ID>
+    <ID>NoConsecutiveBlankLines:PokemonResponse.kt$ </ID>
+    <ID>NoConsecutiveBlankLines:StringExtensions.kt$ </ID>
+    <ID>NoEmptyClassBody:TypeDao.kt$TypeDao${ }</ID>
+    <ID>NoEmptyFirstLineInMethodBlock:SharedPreferencesHelper.kt$SharedPreferencesHelper$ </ID>
+    <ID>NoMultipleSpaces:EntityConverter.kt$EntityConverter$ </ID>
+    <ID>NoUnusedImports:PokemonRepository.kt$com.example.mypokedex.data.repository.PokemonRepository.kt</ID>
+    <ID>SpacingAroundColon:PokemonEntityExtension.kt$:</ID>
+    <ID>SpacingAroundColon:PokemonRepository.kt$PokemonRepository$:</ID>
+    <ID>SpacingAroundCurly:PokemonEntityExtension.kt${</ID>
+    <ID>SpacingAroundKeyword:PokemonEntityExtension.kt$if</ID>
+    <ID>SpacingAroundKeyword:PokemonEntityExtension.kt$when</ID>
+    <ID>SpreadOperator:PokemonRepository.kt$PokemonRepository$(*it.toTypedArray())</ID>
+  </CurrentIssues>
+</SmellBaseline>

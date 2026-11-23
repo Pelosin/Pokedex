@@ -21,4 +21,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "MyPokedex"
 include(":app")
+include(":domain")
+include(":data")
+include(":presentation")
  
