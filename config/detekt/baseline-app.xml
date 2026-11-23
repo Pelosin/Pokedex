@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>AnnotationSpacing:MainActivityModule.kt$MainActivityModule$@OptIn(ExperimentalMaterial3Api::class) @Provides @Singleton</ID>
+    <ID>ArgumentListWrapping:MainActivity.kt$MainActivity$( this, Manifest.permission.POST_NOTIFICATIONS )</ID>
+    <ID>FinalNewline:MainActivity.kt$com.example.mypokedex.ui.MainActivity.kt</ID>
+    <ID>FinalNewline:PokedexApplication.kt$com.example.mypokedex.core.PokedexApplication.kt</ID>
+    <ID>ImportOrdering:MainActivityModule.kt$import com.example.mypokedex.ui.MainActivity import dagger.Module import dagger.Provides import dagger.hilt.InstallIn import androidx.compose.material3.ExperimentalMaterial3Api import dagger.hilt.components.SingletonComponent import javax.inject.Singleton</ID>
+    <ID>ModifierListSpacing:MainActivityModule.kt$MainActivityModule$@OptIn(ExperimentalMaterial3Api::class) @Provides @Singleton</ID>
+    <ID>NewLineAtEndOfFile:MainActivity.kt$com.example.mypokedex.ui.MainActivity.kt</ID>
+    <ID>NewLineAtEndOfFile:PokedexApplication.kt$com.example.mypokedex.core.PokedexApplication.kt</ID>
+    <ID>NoBlankLineBeforeRbrace:MainActivity.kt$MainActivity$ </ID>
+    <ID>NoConsecutiveBlankLines:MainActivity.kt$ </ID>
+    <ID>NoConsecutiveBlankLines:MainActivity.kt$MainActivity$ </ID>
+  </CurrentIssues>
+</SmellBaseline>

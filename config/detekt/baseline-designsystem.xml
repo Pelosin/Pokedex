@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>CyclomaticComplexMethod:TypeColor.kt$fun String.getTypeColor()</ID>
+    <ID>FinalNewline:LoadingImage.kt$com.example.mypokedex.ui.composables.loading_image.LoadingImage.kt</ID>
+    <ID>FunctionNaming:LoadingImage.kt$@Composable fun LoadingImage( painter: Painter )</ID>
+    <ID>FunctionNaming:LoadingImage.kt$@Preview(showBackground = true) @Composable fun LoadingImagePreview()</ID>
+    <ID>FunctionNaming:Theme.kt$@Composable fun MyPokedexTheme( darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -&gt; Unit )</ID>
+    <ID>MagicNumber:Color.kt$0xFF0F380F</ID>
+    <ID>MagicNumber:Color.kt$0xFF1A1A1E</ID>
+    <ID>MagicNumber:Color.kt$0xFF232329</ID>
+    <ID>MagicNumber:Color.kt$0xFF2E2E36</ID>
+    <ID>MagicNumber:Color.kt$0xFF3D6EB4</ID>
+    <ID>MagicNumber:Color.kt$0xFF5A5A66</ID>
+    <ID>MagicNumber:Color.kt$0xFF9BBC0F</ID>
+    <ID>MagicNumber:Color.kt$0xFFA3C4F3</ID>
+    <ID>MagicNumber:Color.kt$0xFFB31212</ID>
+    <ID>MagicNumber:Color.kt$0xFFB8B8D0</ID>
+    <ID>MagicNumber:Color.kt$0xFFCADC9F</ID>
+    <ID>MagicNumber:Color.kt$0xFFE4E8D0</ID>
+    <ID>MagicNumber:Color.kt$0xFFECECF0</ID>
+    <ID>MagicNumber:Color.kt$0xFFEE1515</ID>
+    <ID>MagicNumber:Color.kt$0xFFF4EFE3</ID>
+    <ID>MagicNumber:Color.kt$0xFFFDF6F6</ID>
+    <ID>MagicNumber:Color.kt$0xFFFF6E6E</ID>
+    <ID>MagicNumber:Color.kt$0xFFFF8A8A</ID>
+    <ID>MagicNumber:LoadingImage.kt$0.6f</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFF00A0A0</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFF6493EB</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFF7038F8</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFF705848</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFF705898</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFF78C850</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFF8A8A8A</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFF98D8D8</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFFA040A0</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFFA890F0</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFFA8A878</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFFA8B820</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFFB8A038</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFFB8B8D0</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFFC03028</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFFE0C068</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFFF0A0F0</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFFF85888</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFFF8D030</ID>
+    <ID>MagicNumber:TypeColor.kt$0xFFFF6A00</ID>
+    <ID>NewLineAtEndOfFile:LoadingImage.kt$com.example.mypokedex.ui.composables.loading_image.LoadingImage.kt</ID>
+    <ID>NoMultipleSpaces:TypeColor.kt$ </ID>
+    <ID>PackageName:LoadingImage.kt$package com.example.mypokedex.ui.composables.loading_image</ID>
+    <ID>PackageNaming:LoadingImage.kt$package com.example.mypokedex.ui.composables.loading_image</ID>
+  </CurrentIssues>
+</SmellBaseline>
