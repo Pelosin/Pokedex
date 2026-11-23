@@ -1,0 +1,191 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>ArgumentListWrapping:NotificationsManager.kt$NotificationsManager$( channel.channelId, channel.channelName, channel.importance )</ID>
+    <ID>ArgumentListWrapping:PokedexScreen.kt$( expanded = expandedAlpha.value, onDismissRequest = { expandedAlpha.value = false })</ID>
+    <ID>ArgumentListWrapping:PokedexScreen.kt$( expanded = expandedFilter.value, onDismissRequest = { expandedFilter.value = false })</ID>
+    <ID>ArgumentListWrapping:PokedexScreen.kt$( { Text("A - Z") }, onClick = { })</ID>
+    <ID>ArgumentListWrapping:PokedexScreen.kt$( { Text("Z - A") }, onClick = { })</ID>
+    <ID>CommentSpacing:PokedexScreen.kt$//LazyColumn {</ID>
+    <ID>CommentSpacing:PokedexScreen.kt$//}</ID>
+    <ID>CommentSpacing:PokemonTypeImage.kt$//PokemonTypeImage(TypeDetail("Grass", "a"))</ID>
+    <ID>FinalNewline:ChannelType.kt$com.example.mypokedex.ui.notifications.ChannelType.kt</ID>
+    <ID>FinalNewline:EvolutionsViewModel.kt$com.example.mypokedex.ui.viewmodels.EvolutionsViewModel.kt</ID>
+    <ID>FinalNewline:InputEvents.kt$com.example.mypokedex.ui.utils.InputEvents.kt</ID>
+    <ID>FinalNewline:NavigationStack.kt$com.example.mypokedex.ui.composables.navigation.NavigationStack.kt</ID>
+    <ID>FinalNewline:NavigationViewModel.kt$com.example.mypokedex.ui.viewmodels.NavigationViewModel.kt</ID>
+    <ID>FinalNewline:NotificationsManager.kt$com.example.mypokedex.ui.notifications.NotificationsManager.kt</ID>
+    <ID>FinalNewline:PokedexScreen.kt$com.example.mypokedex.ui.screens.PokedexScreen.kt</ID>
+    <ID>FinalNewline:PokedexUiState.kt$com.example.mypokedex.ui.utils.PokedexUiState.kt</ID>
+    <ID>FinalNewline:PokemonAttributes.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonAttributes.kt</ID>
+    <ID>FinalNewline:PokemonDetailSpecs.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonDetailSpecs.kt</ID>
+    <ID>FinalNewline:PokemonDetails.kt$com.example.mypokedex.ui.composables.pokemon_details.PokemonDetails.kt</ID>
+    <ID>FinalNewline:PokemonDetailsImage.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_image.PokemonDetailsImage.kt</ID>
+    <ID>FinalNewline:PokemonDetailsScreen.kt$com.example.mypokedex.ui.screens.PokemonDetailsScreen.kt</ID>
+    <ID>FinalNewline:PokemonDetailsTopbar.kt$com.example.mypokedex.ui.composables.pokedex_topbar.PokemonDetailsTopbar.kt</ID>
+    <ID>FinalNewline:PokemonDetailsUiState.kt$com.example.mypokedex.ui.utils.PokemonDetailsUiState.kt</ID>
+    <ID>FinalNewline:PokemonDetailsViewModel.kt$com.example.mypokedex.ui.viewmodels.PokemonDetailsViewModel.kt</ID>
+    <ID>FinalNewline:PokemonErrorScreen.kt$com.example.mypokedex.ui.screens.PokemonErrorScreen.kt</ID>
+    <ID>FinalNewline:PokemonEvolutions.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonEvolutions.kt</ID>
+    <ID>FinalNewline:PokemonList.kt$com.example.mypokedex.ui.composables.pokemon_list.PokemonList.kt</ID>
+    <ID>FinalNewline:PokemonListItem.kt$com.example.mypokedex.ui.composables.pokemon_list.PokemonListItem.kt</ID>
+    <ID>FinalNewline:PokemonStats.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonStats.kt</ID>
+    <ID>FinalNewline:PokemonTypeImage.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonTypeImage.kt</ID>
+    <ID>FinalNewline:TopBarDetailsViewModel.kt$com.example.mypokedex.ui.viewmodels.TopBarDetailsViewModel.kt</ID>
+    <ID>FinalNewline:TypesViewModel.kt$com.example.mypokedex.ui.viewmodels.TypesViewModel.kt</ID>
+    <ID>FinalNewline:UiState.kt$com.example.mypokedex.ui.utils.UiState.kt</ID>
+    <ID>FunctionNaming:FirstTimeScreen.kt$@Composable fun FirstTimeScreen( onClick: () -&gt; Unit )</ID>
+    <ID>FunctionNaming:FirstTimeScreen.kt$@Preview(showBackground = true) @Composable fun PreviewFirstTimeScreen()</ID>
+    <ID>FunctionNaming:NavigationStack.kt$@ExperimentalMaterial3Api @Composable fun NavigationStack( )</ID>
+    <ID>FunctionNaming:PokedexScreen.kt$@ExperimentalMaterial3Api @Composable fun PokedexScreen( navController: NavController )</ID>
+    <ID>FunctionNaming:PokedexTopbar.kt$@ExperimentalMaterial3Api @Composable fun PokedexTopbar( modifier: Modifier = Modifier, scrollBehavior: TopAppBarScrollBehavior )</ID>
+    <ID>FunctionNaming:PokemonAttributes.kt$@Composable fun PokemonAttributes( pokemonDetails: Pokemon )</ID>
+    <ID>FunctionNaming:PokemonAttributes.kt$@Composable private fun LcdReadout( label: String, value: String, modifier: Modifier = Modifier )</ID>
+    <ID>FunctionNaming:PokemonDetailSpecs.kt$@Composable fun PokemonDetailSpecs( pokemon: Pokemon, navController: NavController )</ID>
+    <ID>FunctionNaming:PokemonDetailSpecs.kt$@Composable private fun UnderlineTab( label: String, active: Boolean, modifier: Modifier = Modifier, onClick: () -&gt; Unit )</ID>
+    <ID>FunctionNaming:PokemonDetails.kt$@ExperimentalMaterial3Api @Composable fun PokemonDetails( pokemon: Pokemon, navController: NavController )</ID>
+    <ID>FunctionNaming:PokemonDetails.kt$@ExperimentalMaterial3Api @Preview(showBackground = true) @Composable fun PokeDetailsPreview()</ID>
+    <ID>FunctionNaming:PokemonDetailsImage.kt$@Composable fun PokemonDetailsImage( sprite: String, color: Color )</ID>
+    <ID>FunctionNaming:PokemonDetailsImage.kt$@Preview(showBackground = true) @Composable fun PokemonDetailsImagePreview()</ID>
+    <ID>FunctionNaming:PokemonDetailsScreen.kt$@ExperimentalMaterial3Api @Composable fun PokemonDetailScreen( name: String, navController: NavController )</ID>
+    <ID>FunctionNaming:PokemonDetailsTopbar.kt$@ExperimentalMaterial3Api @Composable fun PokemonDetailsTopbar( modifier: Modifier = Modifier, navController: NavController, pokemon: Pokemon, color: Color )</ID>
+    <ID>FunctionNaming:PokemonDetailsTopbar.kt$@OptIn(ExperimentalMaterial3Api::class) @Preview(showBackground = true) @Composable fun DetailsTopbarPreview()</ID>
+    <ID>FunctionNaming:PokemonErrorScreen.kt$@Composable fun PokemonErrorScreen( error: String )</ID>
+    <ID>FunctionNaming:PokemonErrorScreen.kt$@Preview(showBackground = true) @Composable fun PokemonErrorScreenPreview()</ID>
+    <ID>FunctionNaming:PokemonEvolutions.kt$@Composable fun PokemonEvolutions( pokemonDetails: Pokemon, navController: NavController )</ID>
+    <ID>FunctionNaming:PokemonList.kt$@Composable fun PokemonList( pokemonList: List&lt;Pokemon&gt;, navController: NavController )</ID>
+    <ID>FunctionNaming:PokemonListItem.kt$@Composable fun PokemonListItem( pokemon: Pokemon, sprite: String?, onClick: () -&gt; Unit )</ID>
+    <ID>FunctionNaming:PokemonStats.kt$@Composable fun PokemonStats( statsList: List&lt;Stats&gt; )</ID>
+    <ID>FunctionNaming:PokemonStats.kt$@Composable private fun SegmentedBar(fraction: Float)</ID>
+    <ID>FunctionNaming:PokemonStats.kt$@Composable private fun StatRow( statName: String, baseStat: Int )</ID>
+    <ID>FunctionNaming:PokemonTypeImage.kt$@Composable fun PokemonTypeImage( typeSprite: String )</ID>
+    <ID>FunctionNaming:PokemonTypeImage.kt$@Preview(showBackground = true) @Composable fun PokemonTypeImagePreview()</ID>
+    <ID>ImportOrdering:FirstTimeScreen.kt$import androidx.appcompat.content.res.AppCompatResources.getDrawable import androidx.compose.animation.core.LinearEasing import androidx.compose.animation.core.RepeatMode import androidx.compose.animation.core.animateFloat import androidx.compose.animation.core.infiniteRepeatable import androidx.compose.animation.core.rememberInfiniteTransition import androidx.compose.animation.core.tween import androidx.compose.foundation.Image import androidx.compose.foundation.background import androidx.compose.foundation.border import androidx.compose.foundation.clickable import androidx.compose.foundation.layout.Arrangement import androidx.compose.foundation.layout.Box import androidx.compose.foundation.layout.Column import androidx.compose.foundation.layout.Row import androidx.compose.foundation.layout.Spacer import androidx.compose.foundation.layout.fillMaxSize import androidx.compose.foundation.layout.fillMaxWidth import androidx.compose.foundation.layout.height import androidx.compose.foundation.layout.padding import androidx.compose.foundation.layout.size import androidx.compose.foundation.shape.CircleShape import androidx.compose.foundation.shape.RoundedCornerShape import androidx.compose.material3.MaterialTheme import androidx.compose.material3.Text import androidx.compose.runtime.Composable import androidx.compose.runtime.getValue import androidx.compose.ui.Alignment import androidx.compose.ui.Modifier import androidx.compose.ui.draw.alpha import androidx.compose.ui.graphics.Color import androidx.compose.ui.platform.LocalContext import androidx.compose.ui.text.style.TextAlign import androidx.compose.ui.tooling.preview.Preview import androidx.compose.ui.unit.dp import com.example.mypokedex.ui.R import com.example.mypokedex.core.designsystem.R as DesignSystemR import com.example.mypokedex.ui.theme.LcdDark import com.example.mypokedex.ui.theme.LcdGreen import com.example.mypokedex.ui.theme.LcdPale import com.example.mypokedex.ui.theme.RetroInk import com.example.mypokedex.ui.theme.VintageWhite import com.google.accompanist.drawablepainter.rememberDrawablePainter</ID>
+    <ID>ImportOrdering:PokedexScreen.kt$import androidx.appcompat.content.res.AppCompatResources.getDrawable import androidx.compose.foundation.layout.Arrangement import androidx.compose.foundation.layout.Box import androidx.compose.foundation.layout.Column import androidx.compose.foundation.layout.Row import androidx.compose.foundation.layout.fillMaxWidth import androidx.compose.foundation.layout.padding import androidx.compose.foundation.layout.size import androidx.compose.material.icons.Icons import androidx.compose.material.icons.filled.Search import androidx.compose.material.icons.filled.Star import androidx.compose.material3.DropdownMenu import androidx.compose.material3.DropdownMenuItem import androidx.compose.material3.ExperimentalMaterial3Api import androidx.compose.material3.Icon import androidx.compose.material3.IconButton import androidx.compose.material3.OutlinedTextField import androidx.compose.material3.OutlinedTextFieldDefaults import androidx.compose.material3.Scaffold import androidx.compose.material3.Text import androidx.compose.material3.TopAppBarDefaults import androidx.compose.material3.rememberTopAppBarState import androidx.compose.runtime.Composable import androidx.compose.runtime.mutableStateOf import androidx.compose.runtime.remember import androidx.compose.ui.Alignment import androidx.compose.ui.Modifier import androidx.compose.ui.graphics.Color import androidx.compose.ui.input.nestedscroll.nestedScroll import androidx.compose.ui.platform.LocalContext import androidx.compose.ui.res.painterResource import androidx.compose.ui.unit.dp import androidx.hilt.navigation.compose.hiltViewModel import androidx.lifecycle.compose.collectAsStateWithLifecycle import androidx.navigation.NavController import com.example.mypokedex.ui.R import com.example.mypokedex.core.designsystem.R as DesignSystemR import com.example.mypokedex.ui.composables.loading_image.LoadingImage import com.example.mypokedex.ui.composables.pokedex_topbar.PokedexTopbar import com.example.mypokedex.ui.composables.pokemon_list.PokemonList import com.example.mypokedex.ui.utils.InputEvents import com.example.mypokedex.ui.utils.UiState import com.example.mypokedex.ui.theme.LcdGreen import com.example.mypokedex.ui.theme.RetroInk import com.example.mypokedex.ui.theme.VintageWhite import com.example.mypokedex.ui.viewmodels.PokedexViewModel import com.google.accompanist.drawablepainter.rememberDrawablePainter</ID>
+    <ID>ImportOrdering:PokedexViewModel.kt$import androidx.compose.runtime.mutableStateOf import androidx.lifecycle.ViewModel import androidx.lifecycle.viewModelScope import com.example.mypokedex.di.DefaultDispatcher import com.example.mypokedex.domain.model.Pokemon import com.example.mypokedex.domain.repository.IPokemonRepository import com.example.mypokedex.ui.notifications.NotificationsManager import com.example.mypokedex.domain.model.FilterType import com.example.mypokedex.ui.utils.InputEvents import com.example.mypokedex.ui.utils.UiState import dagger.hilt.android.lifecycle.HiltViewModel import kotlinx.coroutines.CoroutineDispatcher import kotlinx.coroutines.ExperimentalCoroutinesApi import kotlinx.coroutines.flow.MutableStateFlow import kotlinx.coroutines.flow.SharingStarted import kotlinx.coroutines.flow.flatMapLatest import kotlinx.coroutines.flow.map import kotlinx.coroutines.flow.stateIn import kotlinx.coroutines.launch import javax.inject.Inject</ID>
+    <ID>ImportOrdering:PokemonDetailsTopbar.kt$import androidx.compose.foundation.background import androidx.compose.foundation.layout.padding import androidx.compose.foundation.layout.size import androidx.compose.material.icons.Icons import androidx.compose.material.icons.automirrored.sharp.ArrowBack import androidx.compose.material.icons.filled.Star import androidx.compose.material3.ExperimentalMaterial3Api import androidx.compose.material3.Icon import androidx.compose.material3.IconButton import androidx.compose.material3.Text import androidx.compose.material3.TopAppBar import androidx.compose.material3.TopAppBarDefaults import androidx.compose.runtime.Composable import androidx.compose.ui.Modifier import androidx.compose.ui.graphics.Color import androidx.compose.ui.graphics.vector.ImageVector import androidx.compose.ui.res.vectorResource import androidx.compose.ui.text.font.Font import androidx.compose.ui.text.font.FontFamily import androidx.compose.ui.text.style.TextAlign import androidx.compose.ui.tooling.preview.Preview import androidx.compose.ui.unit.dp import androidx.hilt.navigation.compose.hiltViewModel import androidx.navigation.NavController import com.example.mypokedex.ui.R import com.example.mypokedex.core.designsystem.R as DesignSystemR import com.example.mypokedex.domain.model.Pokemon import com.example.mypokedex.ui.utils.InputEvents import com.example.mypokedex.ui.viewmodels.PokemonDetailsViewModel</ID>
+    <ID>ImportOrdering:PokemonEvolutions.kt$import androidx.appcompat.content.res.AppCompatResources.getDrawable import androidx.compose.foundation.background import androidx.compose.foundation.border import androidx.compose.foundation.layout.Arrangement import androidx.compose.foundation.layout.Box import androidx.compose.foundation.layout.Column import androidx.compose.foundation.layout.PaddingValues import androidx.compose.foundation.layout.fillMaxHeight import androidx.compose.foundation.layout.fillMaxSize import androidx.compose.foundation.layout.fillMaxWidth import androidx.compose.foundation.layout.height import androidx.compose.foundation.layout.padding import androidx.compose.foundation.layout.size import androidx.compose.foundation.lazy.LazyRow import androidx.compose.foundation.shape.RoundedCornerShape import androidx.compose.material3.MaterialTheme import androidx.compose.material3.Text import androidx.compose.runtime.Composable import androidx.compose.ui.Alignment import androidx.compose.ui.Modifier import androidx.compose.ui.graphics.Color import androidx.compose.ui.graphics.FilterQuality import androidx.compose.ui.platform.LocalContext import androidx.compose.ui.res.painterResource import androidx.compose.ui.text.style.TextAlign import androidx.compose.ui.tooling.preview.Preview import androidx.compose.ui.unit.dp import androidx.hilt.navigation.compose.hiltViewModel import androidx.lifecycle.compose.collectAsStateWithLifecycle import androidx.navigation.NavController import coil3.compose.AsyncImage import coil3.request.ImageRequest import coil3.request.crossfade import com.example.mypokedex.ui.R import com.example.mypokedex.core.designsystem.R as DesignSystemR import com.example.mypokedex.domain.model.Pokemon import com.example.mypokedex.ui.composables.loading_image.LoadingImage import com.example.mypokedex.ui.composables.navigation.Screen import com.example.mypokedex.ui.screens.PokemonErrorScreen import com.example.mypokedex.ui.utils.InputEvents import com.example.mypokedex.ui.utils.UiState import com.example.mypokedex.ui.theme.LcdGreen import com.example.mypokedex.ui.theme.RetroInk import com.example.mypokedex.ui.viewmodels.EvolutionsViewModel import com.google.accompanist.drawablepainter.rememberDrawablePainter</ID>
+    <ID>ImportOrdering:PokemonListItem.kt$import androidx.compose.animation.core.LinearEasing import androidx.compose.animation.core.RepeatMode import androidx.compose.animation.core.animateFloat import androidx.compose.animation.core.infiniteRepeatable import androidx.compose.animation.core.rememberInfiniteTransition import androidx.compose.animation.core.tween import androidx.appcompat.content.res.AppCompatResources.getDrawable import androidx.compose.foundation.BorderStroke import androidx.compose.foundation.Image import androidx.compose.foundation.background import androidx.compose.foundation.border import androidx.compose.foundation.layout.Arrangement import androidx.compose.foundation.layout.Box import androidx.compose.foundation.layout.Column import androidx.compose.foundation.layout.Row import androidx.compose.foundation.layout.fillMaxWidth import androidx.compose.foundation.layout.padding import androidx.compose.foundation.layout.size import androidx.compose.foundation.shape.CircleShape import androidx.compose.foundation.shape.RoundedCornerShape import androidx.compose.material.icons.Icons import androidx.compose.material.icons.filled.Star import androidx.compose.material3.Card import androidx.compose.material3.CardDefaults import androidx.compose.material3.Icon import androidx.compose.material3.MaterialTheme import androidx.compose.material3.Text import androidx.compose.runtime.Composable import androidx.compose.runtime.getValue import androidx.compose.runtime.mutableStateOf import androidx.compose.runtime.remember import androidx.compose.ui.Alignment import androidx.compose.ui.Modifier import androidx.compose.ui.draw.alpha import androidx.compose.ui.graphics.Color import androidx.compose.ui.graphics.FilterQuality import androidx.compose.ui.graphics.graphicsLayer import androidx.compose.ui.platform.LocalContext import androidx.compose.ui.text.style.TextOverflow import androidx.compose.ui.tooling.preview.Preview import androidx.compose.ui.unit.dp import androidx.compose.ui.unit.sp import coil3.compose.AsyncImage import coil3.request.ImageRequest import coil3.request.crossfade import com.example.mypokedex.ui.R import com.example.mypokedex.core.designsystem.R as DesignSystemR import com.example.mypokedex.domain.model.Pokemon import com.example.mypokedex.utils.getTypeColor import com.google.accompanist.drawablepainter.rememberDrawablePainter</ID>
+    <ID>ImportOrdering:TopBarDetailsViewModel.kt$import androidx.lifecycle.ViewModel import androidx.lifecycle.viewModelScope import com.example.mypokedex.domain.repository.IPokemonRepository import com.example.mypokedex.di.IoDispatcher import com.example.mypokedex.ui.utils.InputEvents import com.example.mypokedex.ui.utils.UiState import dagger.hilt.android.lifecycle.HiltViewModel import kotlinx.coroutines.CoroutineDispatcher import kotlinx.coroutines.flow.MutableStateFlow import kotlinx.coroutines.flow.asStateFlow import kotlinx.coroutines.launch import javax.inject.Inject</ID>
+    <ID>LongMethod:FirstTimeScreen.kt$@Composable fun FirstTimeScreen( onClick: () -&gt; Unit )</ID>
+    <ID>LongMethod:PokedexScreen.kt$@ExperimentalMaterial3Api @Composable fun PokedexScreen( navController: NavController )</ID>
+    <ID>LongMethod:PokemonEvolutions.kt$@Composable fun PokemonEvolutions( pokemonDetails: Pokemon, navController: NavController )</ID>
+    <ID>LongMethod:PokemonListItem.kt$@Composable fun PokemonListItem( pokemon: Pokemon, sprite: String?, onClick: () -&gt; Unit )</ID>
+    <ID>MagicNumber:FirstTimeScreen.kt$0.2f</ID>
+    <ID>MagicNumber:FirstTimeScreen.kt$0.5f</ID>
+    <ID>MagicNumber:FirstTimeScreen.kt$0xFF3B4CCA</ID>
+    <ID>MagicNumber:FirstTimeScreen.kt$0xFF71D44C</ID>
+    <ID>MagicNumber:FirstTimeScreen.kt$0xFFFF7F7F</ID>
+    <ID>MagicNumber:FirstTimeScreen.kt$0xFFFFDE00</ID>
+    <ID>MagicNumber:PokedexTopbar.kt$0xFF3B4CCA</ID>
+    <ID>MagicNumber:PokedexTopbar.kt$0xFF71D44C</ID>
+    <ID>MagicNumber:PokedexTopbar.kt$0xFFFF7F7F</ID>
+    <ID>MagicNumber:PokedexTopbar.kt$0xFFFFDE00</ID>
+    <ID>MagicNumber:PokemonDetailSpecs.kt$0.55f</ID>
+    <ID>MagicNumber:PokemonDetailSpecs.kt$0xFF9E9E9E</ID>
+    <ID>MagicNumber:PokemonDetailsImage.kt$0.4f</ID>
+    <ID>MagicNumber:PokemonDetailsImage.kt$0xFF78C850</ID>
+    <ID>MagicNumber:PokemonEvolutions.kt$0.7f</ID>
+    <ID>MagicNumber:PokemonEvolutions.kt$0xFF9E9E9E</ID>
+    <ID>MagicNumber:PokemonListItem.kt$0.6f</ID>
+    <ID>MagicNumber:PokemonListItem.kt$0.8f</ID>
+    <ID>MagicNumber:PokemonListItem.kt$0xFF1A1A1E</ID>
+    <ID>MagicNumber:PokemonListItem.kt$0xFF9BBC0F</ID>
+    <ID>MagicNumber:PokemonListItem.kt$0xFFFFC107</ID>
+    <ID>MagicNumber:PokemonListItem.kt$3</ID>
+    <ID>MagicNumber:PokemonStats.kt$12</ID>
+    <ID>MagicNumber:PokemonStats.kt$255f</ID>
+    <ID>MultiLineIfElse:PokemonStats.kt$0</ID>
+    <ID>NewLineAtEndOfFile:ChannelType.kt$com.example.mypokedex.ui.notifications.ChannelType.kt</ID>
+    <ID>NewLineAtEndOfFile:EvolutionsViewModel.kt$com.example.mypokedex.ui.viewmodels.EvolutionsViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:InputEvents.kt$com.example.mypokedex.ui.utils.InputEvents.kt</ID>
+    <ID>NewLineAtEndOfFile:NavigationStack.kt$com.example.mypokedex.ui.composables.navigation.NavigationStack.kt</ID>
+    <ID>NewLineAtEndOfFile:NavigationViewModel.kt$com.example.mypokedex.ui.viewmodels.NavigationViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:NotificationsManager.kt$com.example.mypokedex.ui.notifications.NotificationsManager.kt</ID>
+    <ID>NewLineAtEndOfFile:PokedexScreen.kt$com.example.mypokedex.ui.screens.PokedexScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:PokedexUiState.kt$com.example.mypokedex.ui.utils.PokedexUiState.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonAttributes.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonAttributes.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonDetailSpecs.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonDetailSpecs.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonDetails.kt$com.example.mypokedex.ui.composables.pokemon_details.PokemonDetails.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonDetailsImage.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_image.PokemonDetailsImage.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonDetailsScreen.kt$com.example.mypokedex.ui.screens.PokemonDetailsScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonDetailsTopbar.kt$com.example.mypokedex.ui.composables.pokedex_topbar.PokemonDetailsTopbar.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonDetailsUiState.kt$com.example.mypokedex.ui.utils.PokemonDetailsUiState.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonDetailsViewModel.kt$com.example.mypokedex.ui.viewmodels.PokemonDetailsViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonErrorScreen.kt$com.example.mypokedex.ui.screens.PokemonErrorScreen.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonEvolutions.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonEvolutions.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonList.kt$com.example.mypokedex.ui.composables.pokemon_list.PokemonList.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonListItem.kt$com.example.mypokedex.ui.composables.pokemon_list.PokemonListItem.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonStats.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonStats.kt</ID>
+    <ID>NewLineAtEndOfFile:PokemonTypeImage.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonTypeImage.kt</ID>
+    <ID>NewLineAtEndOfFile:TopBarDetailsViewModel.kt$com.example.mypokedex.ui.viewmodels.TopBarDetailsViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:TypesViewModel.kt$com.example.mypokedex.ui.viewmodels.TypesViewModel.kt</ID>
+    <ID>NewLineAtEndOfFile:UiState.kt$com.example.mypokedex.ui.utils.UiState.kt</ID>
+    <ID>NoBlankLineBeforeRbrace:InputEvents.kt$InputEvents$ </ID>
+    <ID>NoBlankLineBeforeRbrace:NavigationStack.kt$ </ID>
+    <ID>NoBlankLineBeforeRbrace:NavigationViewModel.kt$NavigationViewModel$ </ID>
+    <ID>NoBlankLineBeforeRbrace:NotificationsManager.kt$NotificationsManager$ </ID>
+    <ID>NoBlankLineBeforeRbrace:PokedexScreen.kt$ </ID>
+    <ID>NoBlankLineBeforeRbrace:PokedexViewModel.kt$PokedexViewModel$ </ID>
+    <ID>NoBlankLineBeforeRbrace:PokemonDetails.kt$ </ID>
+    <ID>NoBlankLineBeforeRbrace:PokemonDetailsTopbar.kt$ </ID>
+    <ID>NoBlankLineBeforeRbrace:PokemonDetailsUiState.kt$PokemonDetailsUiState$ </ID>
+    <ID>NoBlankLineBeforeRbrace:TypesViewModel.kt$TypesViewModel$ </ID>
+    <ID>NoConsecutiveBlankLines:EvolutionsViewModel.kt$EvolutionsViewModel$ </ID>
+    <ID>NoConsecutiveBlankLines:NotificationsManager.kt$NotificationsManager$ </ID>
+    <ID>NoConsecutiveBlankLines:PokedexViewModel.kt$PokedexViewModel$ </ID>
+    <ID>NoConsecutiveBlankLines:PokemonDetails.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:PokedexScreen.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:PokemonDetails.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:PokemonDetailsImage.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:PokemonDetailsTopbar.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:PokemonList.kt$ </ID>
+    <ID>NoUnusedImports:EvolutionsViewModel.kt$com.example.mypokedex.ui.viewmodels.EvolutionsViewModel.kt</ID>
+    <ID>NoUnusedImports:FirstTimeScreen.kt$com.example.mypokedex.ui.screens.FirstTimeScreen.kt</ID>
+    <ID>NoUnusedImports:PokedexViewModel.kt$com.example.mypokedex.ui.viewmodels.PokedexViewModel.kt</ID>
+    <ID>NoUnusedImports:PokemonAttributes.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonAttributes.kt</ID>
+    <ID>NoUnusedImports:PokemonDetailSpecs.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonDetailSpecs.kt</ID>
+    <ID>NoUnusedImports:PokemonDetailsImage.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_image.PokemonDetailsImage.kt</ID>
+    <ID>NoUnusedImports:PokemonErrorScreen.kt$com.example.mypokedex.ui.screens.PokemonErrorScreen.kt</ID>
+    <ID>NoUnusedImports:PokemonEvolutions.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonEvolutions.kt</ID>
+    <ID>NoUnusedImports:PokemonList.kt$com.example.mypokedex.ui.composables.pokemon_list.PokemonList.kt</ID>
+    <ID>NoUnusedImports:PokemonListItem.kt$com.example.mypokedex.ui.composables.pokemon_list.PokemonListItem.kt</ID>
+    <ID>NoUnusedImports:PokemonStats.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonStats.kt</ID>
+    <ID>NoUnusedImports:PokemonTypeImage.kt$com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs.PokemonTypeImage.kt</ID>
+    <ID>PackageName:PokedexTopbar.kt$package com.example.mypokedex.ui.composables.pokedex_topbar</ID>
+    <ID>PackageName:PokemonAttributes.kt$package com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs</ID>
+    <ID>PackageName:PokemonDetailSpecs.kt$package com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs</ID>
+    <ID>PackageName:PokemonDetails.kt$package com.example.mypokedex.ui.composables.pokemon_details</ID>
+    <ID>PackageName:PokemonDetailsImage.kt$package com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_image</ID>
+    <ID>PackageName:PokemonDetailsTopbar.kt$package com.example.mypokedex.ui.composables.pokedex_topbar</ID>
+    <ID>PackageName:PokemonEvolutions.kt$package com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs</ID>
+    <ID>PackageName:PokemonList.kt$package com.example.mypokedex.ui.composables.pokemon_list</ID>
+    <ID>PackageName:PokemonListItem.kt$package com.example.mypokedex.ui.composables.pokemon_list</ID>
+    <ID>PackageName:PokemonStats.kt$package com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs</ID>
+    <ID>PackageName:PokemonTypeImage.kt$package com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs</ID>
+    <ID>PackageNaming:PokedexTopbar.kt$package com.example.mypokedex.ui.composables.pokedex_topbar</ID>
+    <ID>PackageNaming:PokemonAttributes.kt$package com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs</ID>
+    <ID>PackageNaming:PokemonDetailSpecs.kt$package com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs</ID>
+    <ID>PackageNaming:PokemonDetails.kt$package com.example.mypokedex.ui.composables.pokemon_details</ID>
+    <ID>PackageNaming:PokemonDetailsImage.kt$package com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_image</ID>
+    <ID>PackageNaming:PokemonDetailsTopbar.kt$package com.example.mypokedex.ui.composables.pokedex_topbar</ID>
+    <ID>PackageNaming:PokemonEvolutions.kt$package com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs</ID>
+    <ID>PackageNaming:PokemonList.kt$package com.example.mypokedex.ui.composables.pokemon_list</ID>
+    <ID>PackageNaming:PokemonListItem.kt$package com.example.mypokedex.ui.composables.pokemon_list</ID>
+    <ID>PackageNaming:PokemonStats.kt$package com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs</ID>
+    <ID>PackageNaming:PokemonTypeImage.kt$package com.example.mypokedex.ui.composables.pokemon_details.pokemon_details_specs</ID>
+    <ID>SpacingAroundColon:InputEvents.kt$InputEvents.OnFavFilter$:</ID>
+    <ID>SpacingAroundCurly:PokedexViewModel.kt$PokedexViewModel${</ID>
+    <ID>SpacingAroundCurly:PokemonDetailsImage.kt${</ID>
+    <ID>SpacingAroundKeyword:PokedexViewModel.kt$PokedexViewModel$if</ID>
+    <ID>SpacingAroundParens:NavigationStack.kt$(</ID>
+    <ID>UnusedParameter:PokemonEvolutions.kt$navController: NavController</ID>
+    <ID>UnusedPrivateProperty:EvolutionsViewModel.kt$EvolutionsViewModel$private val coroutineExceptionHandler = CoroutineExceptionHandler { _, thrwoable -&gt; Log.d("thrwoable.printStackTrace()", thrwoable.stackTraceToString()) }</ID>
+    <ID>UnusedPrivateProperty:PokedexViewModel.kt$PokedexViewModel$@DefaultDispatcher private val defaultDispatcher: CoroutineDispatcher</ID>
+    <ID>UnusedPrivateProperty:PokedexViewModel.kt$PokedexViewModel$private val notificationsManager: NotificationsManager</ID>
+    <ID>UnusedPrivateProperty:TypesViewModel.kt$TypesViewModel$@IoDispatcher ioDispatcher: CoroutineDispatcher</ID>
+    <ID>UnusedPrivateProperty:TypesViewModel.kt$TypesViewModel$private val pokemonRepository: IPokemonRepository</ID>
+    <ID>Wrapping:PokedexScreen.kt$(</ID>
+  </CurrentIssues>
+</SmellBaseline>

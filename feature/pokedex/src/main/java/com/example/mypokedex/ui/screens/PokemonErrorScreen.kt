@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mypokedex.ui.R
+import com.example.mypokedex.core.designsystem.R as DesignSystemR
 
 @Composable
 fun PokemonErrorScreen(
@@ -33,7 +34,7 @@ fun PokemonErrorScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                painterResource(R.drawable.gengar_error),
+                painterResource(DesignSystemR.drawable.gengar_error),
                 contentDescription = null,
                 modifier = Modifier.size(100.dp)
             )

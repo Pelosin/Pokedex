@@ -20,3 +20,7 @@ local.properties
 domain/build/
 data/build/
 presentation/build/
+
+core/designsystem/build/
+feature/pokedex/build/
+build-logic/**/build/

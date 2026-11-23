@@ -36,6 +36,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import com.example.mypokedex.ui.R
+import com.example.mypokedex.core.designsystem.R as DesignSystemR
 import com.example.mypokedex.ui.composables.loading_image.LoadingImage
 import com.example.mypokedex.ui.composables.pokedex_topbar.PokedexTopbar
 import com.example.mypokedex.ui.composables.pokemon_list.PokemonList
@@ -201,7 +202,7 @@ fun PokedexScreen(
                         rememberDrawablePainter(
                             drawable = getDrawable(
                                 LocalContext.current,
-                                R.drawable.pokeball_gif
+                                DesignSystemR.drawable.pokeball_gif
                             )
                         )
                     )

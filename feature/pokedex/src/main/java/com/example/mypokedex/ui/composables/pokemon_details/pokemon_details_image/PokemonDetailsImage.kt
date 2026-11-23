@@ -19,6 +19,7 @@ import coil3.compose.SubcomposeAsyncImage
 import coil3.gif.GifDecoder
 import coil3.request.ImageRequest
 import com.example.mypokedex.ui.R
+import com.example.mypokedex.core.designsystem.R as DesignSystemR
 
 @Composable
 fun PokemonDetailsImage(
@@ -45,7 +46,7 @@ fun PokemonDetailsImage(
             error = {
                 if (LocalInspectionMode.current) {
                     Image(
-                        painter = painterResource(R.drawable.gengar),
+                        painter = painterResource(DesignSystemR.drawable.gengar),
                         contentDescription = null,
                     )
                 }

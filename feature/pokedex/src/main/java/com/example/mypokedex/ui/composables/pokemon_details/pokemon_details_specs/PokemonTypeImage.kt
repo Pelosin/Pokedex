@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.SubcomposeAsyncImage
 import coil3.request.ImageRequest
 import com.example.mypokedex.ui.R
+import com.example.mypokedex.core.designsystem.R as DesignSystemR
 
 @Composable
 fun PokemonTypeImage(
@@ -29,7 +30,7 @@ fun PokemonTypeImage(
         error = {
             if (LocalInspectionMode.current) {
                 Image(
-                    painter = painterResource(R.drawable.gengar),
+                    painter = painterResource(DesignSystemR.drawable.gengar),
                     contentDescription = null,
                 )
             }

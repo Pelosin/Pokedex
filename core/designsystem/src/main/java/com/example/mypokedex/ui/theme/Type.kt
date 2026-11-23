@@ -5,7 +5,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.sp
-import com.example.mypokedex.ui.R
+import com.example.mypokedex.core.designsystem.R
 
 // Retro: everything speaks "Pokemon Classic" pixel type
 private val Retro = FontFamily(Font(R.font.pokefont))

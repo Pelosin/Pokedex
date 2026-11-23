@@ -46,6 +46,7 @@ import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import coil3.request.crossfade
 import com.example.mypokedex.ui.R
+import com.example.mypokedex.core.designsystem.R as DesignSystemR
 import com.example.mypokedex.domain.model.Pokemon
 import com.example.mypokedex.utils.getTypeColor
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
@@ -114,7 +115,7 @@ fun PokemonListItem(
                         painter = rememberDrawablePainter(
                             drawable = getDrawable(
                                 LocalContext.current,
-                                R.drawable.pokeball_gif
+                                DesignSystemR.drawable.pokeball_gif
                             )
                         ),
                         contentDescription = null,

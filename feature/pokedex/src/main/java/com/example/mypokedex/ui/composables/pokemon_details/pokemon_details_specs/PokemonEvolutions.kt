@@ -34,6 +34,7 @@ import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import coil3.request.crossfade
 import com.example.mypokedex.ui.R
+import com.example.mypokedex.core.designsystem.R as DesignSystemR
 import com.example.mypokedex.domain.model.Pokemon
 import com.example.mypokedex.ui.composables.loading_image.LoadingImage
 import com.example.mypokedex.ui.composables.navigation.Screen
@@ -108,7 +109,7 @@ fun PokemonEvolutions(
                                         .build(),
                                     contentDescription = evolution.name,
                                     filterQuality = FilterQuality.None,
-                                    error = painterResource(R.drawable.gengar),
+                                    error = painterResource(DesignSystemR.drawable.gengar),
                                     modifier = Modifier.size(84.dp)
                                 )
                             }
@@ -140,7 +141,7 @@ fun PokemonEvolutions(
                     rememberDrawablePainter(
                         drawable = getDrawable(
                             LocalContext.current,
-                            R.drawable.pokeball_gif
+                            DesignSystemR.drawable.pokeball_gif
                         )
                     )
                 )

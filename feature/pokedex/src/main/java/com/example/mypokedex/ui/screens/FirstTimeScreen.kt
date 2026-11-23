@@ -36,6 +36,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mypokedex.ui.R
+import com.example.mypokedex.core.designsystem.R as DesignSystemR
 import com.example.mypokedex.ui.theme.LcdDark
 import com.example.mypokedex.ui.theme.LcdGreen
 import com.example.mypokedex.ui.theme.LcdPale
@@ -156,7 +157,7 @@ fun FirstTimeScreen(
                 painter = rememberDrawablePainter(
                     drawable = getDrawable(
                         LocalContext.current,
-                        R.drawable.pokeball_gif
+                        DesignSystemR.drawable.pokeball_gif
                     )
                 ),
                 contentDescription = null,

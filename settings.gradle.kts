@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -23,5 +24,6 @@ rootProject.name = "MyPokedex"
 include(":app")
 include(":domain")
 include(":data")
-include(":presentation")
+include(":feature:pokedex")
+include(":core:designsystem")
  

@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.mypokedex.ui.R
+import com.example.mypokedex.core.designsystem.R as DesignSystemR
 import com.example.mypokedex.domain.model.Pokemon
 import com.example.mypokedex.ui.utils.InputEvents
 import com.example.mypokedex.ui.viewmodels.PokemonDetailsViewModel
@@ -49,7 +50,7 @@ fun PokemonDetailsTopbar(
             Text(
                 pokemon.name.replaceFirstChar { it.uppercase() },
                 modifier = Modifier.padding(bottom = 4.dp),
-                fontFamily = FontFamily(Font(R.font.pokefont)),
+                fontFamily = FontFamily(Font(DesignSystemR.font.pokefont)),
                 color = Color.White,
                 textAlign = TextAlign.Center,
             )
