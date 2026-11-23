@@ -41,8 +41,3 @@ fun PokemonList(
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun PokemonListPreview() {
-}

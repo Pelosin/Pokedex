@@ -3,8 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt)
-    alias(libs.plugins.org.jetbrains.kotlin.kapt)
     alias(libs.plugins.ksp)
+    id("io.gitlab.arturbosch.detekt") version "1.23.7"
 }
 
 android {
@@ -78,7 +78,7 @@ dependencies {
 
     //Hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
     implementation(libs.androidx.hilt.navigation.fragment)
     implementation(libs.androidx.hilt.navigation.compose)
 
@@ -104,4 +104,12 @@ dependencies {
     //Mockk
     testImplementation(libs.io.mockk.mockk)
     testImplementation(libs.kotlinx.coroutines.test)
+
+    //Detekt - ktlint formatting rules
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.7")
+}
+
+detekt {
+    buildUponDefaultConfig = true
+    baseline = file("$rootDir/config/detekt/baseline.xml")
 }

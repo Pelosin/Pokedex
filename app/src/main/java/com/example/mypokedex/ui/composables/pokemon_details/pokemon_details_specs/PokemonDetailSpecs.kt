@@ -132,8 +132,3 @@ private fun UnderlineTab(
         )
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun PokemonDetailsSpecPreview() {
-}

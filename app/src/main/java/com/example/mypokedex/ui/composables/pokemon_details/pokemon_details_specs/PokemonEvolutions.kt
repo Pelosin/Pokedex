@@ -152,8 +152,3 @@ fun PokemonEvolutions(
         }
     }
 }
-
-@Preview
-@Composable
-fun PreviewPokemonEvolution() {
-}

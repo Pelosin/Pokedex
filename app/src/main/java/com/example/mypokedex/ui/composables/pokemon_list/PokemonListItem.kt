@@ -159,8 +159,3 @@ fun PokemonListItem(
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewPokemonList() {
-}

@@ -99,8 +99,3 @@ private fun SegmentedBar(fraction: Float) {
         }
     }
 }
-
-@Preview
-@Composable
-fun PokemonStatsPreview() {
-}

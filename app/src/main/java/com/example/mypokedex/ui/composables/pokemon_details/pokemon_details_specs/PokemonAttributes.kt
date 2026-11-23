@@ -112,8 +112,3 @@ private fun LcdReadout(
         }
     }
 }
-
-@Preview
-@Composable
-fun PreviewPokemonAttributes() {
-}

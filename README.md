@@ -10,6 +10,9 @@
   <img src="https://img.shields.io/badge/API_35-3DDC84?style=flat-square&logo=android&logoColor=black" alt="API 35"/>
   <img src="https://img.shields.io/badge/License-MIT-e94f5f?style=flat-square" alt="MIT"/>
 </p>
+<p align="center">
+  <a href="https://github.com/Pelosin/Pokedex/actions/workflows/ci.yml"><img src="https://github.com/Pelosin/Pokedex/actions/workflows/ci.yml/badge.svg" alt="CI"/></a>
+</p>
 
 A native Android Pokédex built with **Kotlin and Jetpack Compose**, structured with **Clean Architecture**: browse every Pokémon in a card grid, open rich detail pages, favourite the ones you catch, and keep browsing even offline.
 
